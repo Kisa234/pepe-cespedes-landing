@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/navbar.astro";
+import Hero from "../components/hero.astro";
+import Bio from "../components/bio.astro";
+import FotosVideos from "../components/fotos_videos.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pepe Céspedes</title>
+    <meta
+      name="description"
+      content="Sitio oficial de Pepe Céspedes, pianista, compositor e intérprete."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+
+  <body class="bg-black text-white antialiased">
+    <Navbar />
+
+    <main>
+      <Hero />
+      <Bio />
+	  <FotosVideos />
+    </main>
+  </body>
+</html>
