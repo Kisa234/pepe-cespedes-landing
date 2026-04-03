@@ -3,8 +3,14 @@ import "../styles/global.css";
 import Navbar from "../components/navbar.astro";
 import Hero from "../components/hero.astro";
 import Bio from "../components/bio.astro";
+import Agenda from "../components/agenda.astro";
 import FotosVideos from "../components/fotos_videos.astro";
 import Discos from "../components/discos.astro";
+import Colaboraciones from "../components/colaboraciones.astro";
+import Prensa from "../components/prensa_reseñas.astro";
+import Contacto from "../components/contacto.astro";
+import Tienda from "../components/tienda.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <html lang="es">
@@ -25,10 +31,37 @@ import Discos from "../components/discos.astro";
 
     <main>
       <Hero />
-      <Bio />
-	  <FotosVideos />
-	  <Discos />
-	  <Colaboraciones />
+
+      <div class="section-fade"><Bio /></div>
+      <div class="section-fade"><Agenda /></div>
+      <div class="section-fade"><FotosVideos /></div>
+      <div class="section-fade"><Discos /></div>
+      <div class="section-fade"><Colaboraciones /></div>
+      <div class="section-fade"><Prensa /></div>
+      <div class="section-fade"><Contacto /></div>
+      <div class="section-fade"><Tienda /></div>
     </main>
+
+    <div class="section-fade"><Footer /></div>
   </body>
 </html>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // una sola vez
+        }
+      });
+    },
+    {
+      threshold: 0.08, // aparece cuando el 8% es visible
+    }
+  );
+
+  document.querySelectorAll(".section-fade").forEach((el) => {
+    observer.observe(el);
+  });
+</script>

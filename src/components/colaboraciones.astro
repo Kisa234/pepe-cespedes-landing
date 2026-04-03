@@ -1,33 +1,46 @@
 ---
-type Span = "small" | "wide" | "tall" | "large";
-
-//small es 1x1
-//wide es 1x2
-//tall es 2x1
-//large es 2x2
-
-type MediaItem =
-    | {
-          type: "video";
-          url: string;
-          title: string;
-          span: Span;
-      }
-    | {
-          type: "image";
-          src: string;
-          span: Span;
-      };
-
-const spanClasses: Record<Span, string> = {
-    small: "col-span-1 row-span-1",
-    wide: "col-span-1 md:col-span-2 row-span-1",
-    tall: "col-span-1 row-span-1 md:row-span-2",
-    large: "col-span-1 md:col-span-2 row-span-1 md:row-span-2",
+type Colaboracion = {
+    artista: string;
+    titulo: string;
+    videoUrl: string;
 };
 
+const colaboraciones: Colaboracion[] = [
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    {
+        artista: "Nicolás Larco",
+        titulo: "Quizás un día así (En vivo)",
+        videoUrl: "https://youtu.be/yY63sjnFONA",
+    },
+    // Agrega más colaboraciones aquí
+];
+
 const getYoutubeId = (url: string) => {
-    const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
+    const match = url.match(/(?:youtu\.be\/|v=)([^&?]+)/);
     return match ? match[1] : "";
 };
 
@@ -35,233 +48,131 @@ const thumb = (url: string) => {
     const id = getYoutubeId(url);
     return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 };
-
-const embedUrl = (url: string) => {
-    const id = getYoutubeId(url);
-    return `https://www.youtube.com/embed/${id}`;
-};
-
-// 🔥 DATA EDITABLE POR EL CLIENTE
-const mediaItems: MediaItem[] = [
-    {
-        type: "video",
-        url: "https://youtu.be/0kQC49kmnNc",
-        title: "Morado el hábito que en ella mora",
-        span: "large",
-    },
-
-    {
-        type: "image",
-        src: "/images/DSC05212.webp",
-        span: "tall",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/iwFIOZ5Q8WI",
-        title: "Moza celosa",
-        span: "small",
-    },
-    {
-        type: "image",
-        src: "/images/IMG_2260.webp",
-        span: "large",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/vY1TYkV9o3A",
-        title: "Frutas para el desayuno",
-        span: "small",
-    },
-
-    {
-        type: "video",
-        url: "https://youtu.be/saEVpVLVMHw",
-        title: "La impredecible dama del temperamento",
-        span: "small",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/gWX-ERaQte0",
-        title: "El Alma del Valle",
-        span: "small",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/VGx-cCYKZQA",
-        title: "Con Piel de Serpiente",
-        span: "small",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/2CBTWhPoYFI",
-        title: "Encadena",
-        span: "small",
-    },
-    {
-        type: "video",
-        url: "https://youtu.be/ydO0Y2RtVlk",
-        title: "Sin Aliento",
-        span: "small",
-    },
-    {
-        type: "image",
-        src: "/images/PP.webp",
-        span: "small",
-    },
-];
 ---
 
-<section id="videos" class="bg-[#0D0D0D] py-20 sm:py-28">
+<section id="colaboraciones" class="bg-black py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
+
+        <div class="mb-12">
             <p class="text-xs uppercase tracking-[0.3em] text-white/40">
-                Videos / Fotos
+                Colaboraciones
             </p>
             <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
-                Universo visual
+                Junto a otros artistas
             </h2>
+            <p class="mt-4 max-w-2xl text-white/60">
+                Encuentros musicales que dejaron huella.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 auto-rows-[220px] md:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {
-                mediaItems.map((item, index) => (
-                    <article
-                        class={`media-item group relative overflow-hidden bg-black ${spanClasses[item.span]} ${
-                            index >= 4 ? "hidden md:block" : ""
-                        }`}
-                    >
-                        {item.type === "image" ? (
-                            <img
-                                src={item.src}
-                                alt=""
-                                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                            />
-                        ) : (
-                            <button
-                                class="relative h-full w-full"
-                                data-video-url={item.url}
-                            >
+                colaboraciones.map((item) => {
+                    const id = getYoutubeId(item.videoUrl);
+                    const embedSrc = `https://www.youtube.com/embed/${id}`;
+                    return (
+                        <button
+                            class="colab-card group relative overflow-hidden bg-[#111] text-left"
+                            data-embed={embedSrc}
+                            data-titulo={item.titulo}
+                            data-artista={item.artista}
+                        >
+                            {/* Thumbnail */}
+                            <div class="relative aspect-video w-full overflow-hidden">
                                 <img
-                                    src={thumb(item.url)}
-                                    alt={item.title}
+                                    src={thumb(item.videoUrl)}
+                                    alt={item.titulo}
                                     class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                                 />
+                                <div class="absolute inset-0 bg-black/30 transition duration-300 group-hover:bg-black/50" />
 
-                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition" />
-
+                                {/* Play button */}
                                 <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="h-14 w-14 flex items-center justify-center rounded-full border border-white/60 bg-black/40">
+                                    <div class="h-12 w-12 flex items-center justify-center rounded-full border border-white/60 bg-black/40 transition duration-300 group-hover:scale-110">
                                         ▶
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="absolute bottom-0 left-0 p-4">
-                                    <p class="text-sm text-white">
-                                        {item.title}
-                                    </p>
-                                </div>
-                            </button>
-                        )}
-                    </article>
-                ))
+                            {/* Info */}
+                            <div class="p-5 border-t border-white/8">
+                                <p class="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-1">
+                                    {item.artista}
+                                </p>
+                                <p class="font-serif text-lg text-white leading-snug">
+                                    {item.titulo}
+                                </p>
+                            </div>
+                        </button>
+                    );
+                })
             }
-        </div>
-        <div class="mt-10 flex justify-center md:hidden">
-            <button
-                id="show-more-btn"
-                class="border border-white px-6 py-3 text-xs uppercase tracking-[0.25em] text-white transition hover:bg-white hover:text-black"
-            >
-                Ver más
-            </button>
         </div>
     </div>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL (reutiliza el mismo estilo que fotos_videos) -->
 <div
-    id="video-modal"
+    id="colab-modal"
     class="fixed inset-0 hidden items-center justify-center bg-black/90 z-50"
 >
     <div class="relative w-full max-w-5xl p-4">
         <button
-            id="close-modal"
-            class="absolute top-0 right-0 text-white text-2xl">✕</button
-        >
+            id="colab-close"
+            class="absolute -top-8 right-4 text-white/70 hover:text-white text-2xl transition"
+        >✕</button>
+
+        <p id="colab-modal-artista" class="mb-1 text-[11px] uppercase tracking-[0.25em] text-white/50"></p>
+        <p id="colab-modal-titulo" class="mb-3 font-serif text-xl text-white"></p>
 
         <div class="aspect-video">
             <iframe
-                id="video-frame"
+                id="colab-frame"
                 class="w-full h-full"
                 src=""
                 allow="autoplay"
-                allowfullscreen></iframe>
+                allowfullscreen
+            ></iframe>
         </div>
     </div>
 </div>
 
 <script>
-    const buttons = document.querySelectorAll("[data-video-url]");
-    const modal = document.getElementById("video-modal");
-    const frame = document.getElementById("video-frame");
-    const closeBtn = document.getElementById("close-modal");
+    const cards = document.querySelectorAll(".colab-card");
+    const modal = document.getElementById("colab-modal");
+    const frame = document.getElementById("colab-frame") as HTMLIFrameElement;
+    const closeBtn = document.getElementById("colab-close");
+    const modalTitulo = document.getElementById("colab-modal-titulo");
+    const modalArtista = document.getElementById("colab-modal-artista");
 
-    const getId = (url: string) => {
-        const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
-        return match ? match[1] : "";
-    };
-
-    const openVideo = (url: string) => {
+    const openModal = (embed: string, titulo: string, artista: string) => {
         if (!modal || !frame) return;
-
-        const id = getId(url);
-        frame.setAttribute(
-            "src",
-            `https://www.youtube.com/embed/${id}?autoplay=1`,
-        );
-
+        frame.src = `${embed}?autoplay=1`;
+        if (modalTitulo) modalTitulo.textContent = titulo;
+        if (modalArtista) modalArtista.textContent = artista;
         modal.classList.remove("hidden");
         modal.classList.add("flex");
         document.body.style.overflow = "hidden";
     };
 
-    const closeVideo = () => {
+    const closeModal = () => {
         if (!modal || !frame) return;
-
-        frame.setAttribute("src", "");
+        frame.src = "";
         modal.classList.add("hidden");
         modal.classList.remove("flex");
         document.body.style.overflow = "";
     };
 
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const url = btn.getAttribute("data-video-url");
-            if (url) openVideo(url);
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            const embed = card.getAttribute("data-embed") ?? "";
+            const titulo = card.getAttribute("data-titulo") ?? "";
+            const artista = card.getAttribute("data-artista") ?? "";
+            openModal(embed, titulo, artista);
         });
     });
 
-    if (closeBtn) {
-        closeBtn.addEventListener("click", closeVideo);
-    }
-
-    if (modal) {
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) closeVideo();
-        });
-    }
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeVideo();
-    });
-</script>
-<script>
-    const showMoreBtn = document.getElementById("show-more-btn");
-
-    showMoreBtn?.addEventListener("click", () => {
-        document.querySelectorAll(".media-item").forEach((el) => {
-            el.classList.remove("hidden");
-        });
-
-        showMoreBtn.remove(); // desaparece el botón
-    });
+    closeBtn?.addEventListener("click", closeModal);
+    modal?.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 </script>

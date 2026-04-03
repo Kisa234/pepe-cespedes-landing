@@ -1,0 +1,117 @@
+---
+type NotaPrensa = {
+    medio: string;
+    titulo: string;
+    descripcion: string;
+    url: string;
+    año: string;
+};
+
+const notas: NotaPrensa[] = [
+    {
+        medio: "RPP Noticias",
+        titulo: "Pepe Céspedes presenta disco compilatorio de sus mejores temas",
+        descripcion: "El pianista lanzó «Mejores temas, mejores tomas 2015–2021», un álbum que recopila nueve instrumentales de sus cinco discos como solista, remezclados y presentados también en vinilo.",
+        url: "https://rpp.pe/musica/nacional/pepe-cespedes-maestro-del-piano-peruano-presenta-un-disco-compilatorio-de-sus-mejores-temas-noticia-1386964",
+        año: "2022",
+    },
+    {
+        medio: "UPC Cultural",
+        titulo: "Sesiones EDM con Pepe Céspedes",
+        descripcion: "El pianista y docente de la Escuela de Música de la UPC comparte su acercamiento a la música peruana, los momentos clave de su carrera y consejos para estudiantes.",
+        url: "https://cultural.upc.edu.pe/arteycultura/pepe-cespedes",
+        año: "2021",
+    },
+    {
+        medio: "RPP Noticias",
+        titulo: "Primer concierto solista del pianista Pepe Céspedes",
+        descripcion: "El pianista ofreció su primer concierto como solista en Miraflores, acompañado por Mario Cuba en el contrabajo y Alex Sarrín en la batería, como antesala a su debut discográfico.",
+        url: "https://rpp.pe/musica/conciertos/primer-concierto-solista-del-pianista-pepe-cespedes-noticia-659916",
+        año: "2014",
+    },
+    {
+        medio: "Perú 21",
+        titulo: "Pepe Céspedes: «Cuesta vencer el miedo de ser alguien»",
+        descripcion: "Una entrevista en profundidad donde el pianista reflexiona sobre su identidad artística, la búsqueda de un sonido propio y los retos de consolidarse como músico independiente.",
+        url: "https://peru21.pe/cultura/pepe-cespedes-cuesta-vencer-miedo-alguien-66537-noticia/",
+        año: "2013",
+    },
+];
+
+const medioIcono: Record<string, string> = {
+    "RPP Noticias": "RPP",
+    "UPC Cultural": "UPC",
+    "Perú 21": "P21",
+};
+---
+
+<section id="prensa" class="bg-[#0D0D0D] py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">
+                Prensa
+            </p>
+            <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
+                En los medios
+            </h2>
+            <p class="mt-4 max-w-2xl text-white/60">
+                Lo que la prensa ha dicho sobre Pepe Céspedes a lo largo de su carrera.
+            </p>
+        </div>
+
+        <div class="grid gap-px bg-white/8 sm:grid-cols-2">
+            {
+                notas.map((nota) => (
+                    <a
+                        href={nota.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="group relative flex flex-col justify-between gap-6 bg-[#0D0D0D] p-8 transition duration-300 hover:bg-[#161616]"
+                    >
+                        {/* Cabecera */}
+                        <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-flex h-8 w-12 items-center justify-center border border-white/15 text-[10px] font-bold uppercase tracking-wider text-white/50">
+                                    {medioIcono[nota.medio] ?? nota.medio.slice(0, 3).toUpperCase()}
+                                </span>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-[0.2em] text-white/40">
+                                        {nota.medio}
+                                    </p>
+                                    <p class="text-[11px] text-white/30">{nota.año}</p>
+                                </div>
+                            </div>
+
+                            {/* Flecha */}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 shrink-0 text-white/20 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/60"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
+                            </svg>
+                        </div>
+
+                        {/* Contenido */}
+                        <div class="space-y-3">
+                            <h3 class="font-serif text-xl leading-snug text-white group-hover:text-white/90">
+                                {nota.titulo}
+                            </h3>
+                            <p class="text-sm leading-relaxed text-white/50">
+                                {nota.descripcion}
+                            </p>
+                        </div>
+
+                        {/* Línea inferior animada */}
+                        <div class="h-px w-0 bg-white/30 transition-all duration-500 group-hover:w-full" />
+                    </a>
+                ))
+            }
+        </div>
+
+    </div>
+</section>

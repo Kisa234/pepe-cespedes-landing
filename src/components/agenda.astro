@@ -1,0 +1,105 @@
+---
+type Evento = {
+    fecha: string;   // ej: "15 ABR"
+    año: string;     // ej: "2025"
+    lugar: string;   // ej: "Centro Cultural de la PUCP"
+    ciudad: string;  // ej: "Lima, Perú"
+    hora: string;    // ej: "8:00 PM"
+    entradas?: string; // URL opcional para comprar entradas
+};
+
+const eventos: Evento[] = [
+    {
+        fecha: "15 ABR",
+        año: "2025",
+        lugar: "Centro Cultural de la PUCP",
+        ciudad: "Lima, Perú",
+        hora: "8:00 PM",
+        entradas: "#",
+    },
+    {
+        fecha: "28 ABR",
+        año: "2025",
+        lugar: "Auditorio del MALI",
+        ciudad: "Lima, Perú",
+        hora: "7:30 PM",
+        entradas: "#",
+    },
+    {
+        fecha: "10 MAY",
+        año: "2025",
+        lugar: "Teatro Marsano",
+        ciudad: "Lima, Perú",
+        hora: "8:00 PM",
+    },
+];
+---
+
+<section id="agenda" class="bg-[#0D0D0D] py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">
+                Agenda
+            </p>
+            <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
+                Próximos eventos
+            </h2>
+        </div>
+
+        {eventos.length > 0 ? (
+            <div class="divide-y divide-white/10 border-y border-white/10">
+                {eventos.map((evento) => (
+                    <div class="group flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+
+                        <!-- Fecha -->
+                        <div class="flex items-center gap-6 sm:w-32 shrink-0">
+                            <div class="text-center">
+                                <p class="font-serif text-2xl leading-none text-white">{evento.fecha}</p>
+                                <p class="mt-1 text-xs text-white/30">{evento.año}</p>
+                            </div>
+                        </div>
+
+                        <!-- Separador vertical (solo desktop) -->
+                        <div class="hidden sm:block w-px h-10 bg-white/10 shrink-0" />
+
+                        <!-- Info -->
+                        <div class="flex-1 sm:px-8">
+                            <p class="font-serif text-lg text-white">{evento.lugar}</p>
+                            <div class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+                                <p class="text-sm text-white/40">{evento.ciudad}</p>
+                                <span class="text-white/20 hidden sm:inline">·</span>
+                                <p class="text-sm text-white/40">{evento.hora}</p>
+                            </div>
+                        </div>
+
+                        <!-- Botón entradas -->
+                        <div class="shrink-0">
+                            {evento.entradas ? (
+                                <a
+                                    href={evento.entradas}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    class="inline-block border border-white/20 px-5 py-2 text-xs uppercase tracking-[0.2em] text-white/60 transition hover:border-white hover:text-white"
+                                >
+                                    Entradas
+                                </a>
+                            ) : (
+                                <span class="inline-block border border-white/10 px-5 py-2 text-xs uppercase tracking-[0.2em] text-white/20 cursor-default">
+                                    Próximamente
+                                </span>
+                            )}
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <div class="border border-white/10 py-16 text-center">
+                <p class="font-serif text-xl text-white/30">No hay eventos programados por el momento.</p>
+                <p class="mt-2 text-sm text-white/20">Vuelve pronto para más novedades.</p>
+            </div>
+        )}
+
+    </div>
+</section>
