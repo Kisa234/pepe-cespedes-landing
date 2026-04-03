@@ -1,0 +1,107 @@
+---
+const albums = [
+    {
+        title: "Disco 01",
+        spotifyUrl: "https://open.spotify.com/album/26FnmFwGVysg7BiFFrlyOG",
+    },
+    {
+        title: "Disco 02",
+        spotifyUrl: "https://open.spotify.com/album/placeholder-2",
+    },
+    {
+        title: "Disco 03",
+        spotifyUrl: "https://open.spotify.com/album/placeholder-3",
+    },
+    {
+        title: "Disco 04",
+        spotifyUrl: "https://open.spotify.com/album/placeholder-4",
+    },
+    {
+        title: "Disco 05",
+        spotifyUrl: "https://open.spotify.com/album/placeholder-5",
+    },
+    {
+        title: "Disco 06",
+        spotifyUrl: "https://open.spotify.com/album/placeholder-6",
+    },
+];
+
+// duplicamos para loop visual continuo
+const marqueeAlbums = [...albums, ...albums];
+---
+
+<section id="discos" class="bg-black py-20 sm:py-28 overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">
+                Discos
+            </p>
+            <h2 class="mt-2 font-serif text-3xl sm:text-4xl">Discografía</h2>
+            <p class="mt-4 max-w-2xl text-white/60">
+                Un recorrido por la obra musical de Pepe Céspedes.
+            </p>
+        </div>
+    </div>
+
+    <div class="relative">
+        <!-- degrade izquierda -->
+        <div
+            class="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black to-transparent sm:w-32"
+        >
+        </div>
+
+        <!-- degrade derecha -->
+        <div
+            class="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black to-transparent sm:w-32"
+        >
+        </div>
+
+        <div
+            class="marquee group flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8"
+        >
+            {
+                marqueeAlbums.map((album, index) => (
+                    <a
+                        href={album.spotifyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="group relative block shrink-0 overflow-hidden bg-[#111111] w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
+                        aria-label={`Escuchar ${album.title} en Spotify`}
+                    >
+                        <div class="absolute inset-0 bg-[#111111]" />
+                        <div class="absolute inset-0 bg-linear-to-br from-white/4 via-transparent to-white/2" />
+
+                        <div class="absolute inset-x-0 bottom-0 z-10 p-4 transition duration-300 group-hover:opacity-0">
+                            <p class="text-sm text-white/70">{album.title}</p>
+                        </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover:bg-black/50 group-hover:opacity-100">
+                            <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover:translate-y-0">
+                                Escuchar en Spotify
+                            </span>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .marquee {
+        animation: discos-marquee 28s linear infinite;
+    }
+
+    .marquee:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes discos-marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+</style>

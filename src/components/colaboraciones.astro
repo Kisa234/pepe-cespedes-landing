@@ -1,0 +1,267 @@
+---
+type Span = "small" | "wide" | "tall" | "large";
+
+//small es 1x1
+//wide es 1x2
+//tall es 2x1
+//large es 2x2
+
+type MediaItem =
+    | {
+          type: "video";
+          url: string;
+          title: string;
+          span: Span;
+      }
+    | {
+          type: "image";
+          src: string;
+          span: Span;
+      };
+
+const spanClasses: Record<Span, string> = {
+    small: "col-span-1 row-span-1",
+    wide: "col-span-1 md:col-span-2 row-span-1",
+    tall: "col-span-1 row-span-1 md:row-span-2",
+    large: "col-span-1 md:col-span-2 row-span-1 md:row-span-2",
+};
+
+const getYoutubeId = (url: string) => {
+    const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
+    return match ? match[1] : "";
+};
+
+const thumb = (url: string) => {
+    const id = getYoutubeId(url);
+    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+};
+
+const embedUrl = (url: string) => {
+    const id = getYoutubeId(url);
+    return `https://www.youtube.com/embed/${id}`;
+};
+
+// 🔥 DATA EDITABLE POR EL CLIENTE
+const mediaItems: MediaItem[] = [
+    {
+        type: "video",
+        url: "https://youtu.be/0kQC49kmnNc",
+        title: "Morado el hábito que en ella mora",
+        span: "large",
+    },
+
+    {
+        type: "image",
+        src: "/images/DSC05212.webp",
+        span: "tall",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/iwFIOZ5Q8WI",
+        title: "Moza celosa",
+        span: "small",
+    },
+    {
+        type: "image",
+        src: "/images/IMG_2260.webp",
+        span: "large",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/vY1TYkV9o3A",
+        title: "Frutas para el desayuno",
+        span: "small",
+    },
+
+    {
+        type: "video",
+        url: "https://youtu.be/saEVpVLVMHw",
+        title: "La impredecible dama del temperamento",
+        span: "small",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/gWX-ERaQte0",
+        title: "El Alma del Valle",
+        span: "small",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/VGx-cCYKZQA",
+        title: "Con Piel de Serpiente",
+        span: "small",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/2CBTWhPoYFI",
+        title: "Encadena",
+        span: "small",
+    },
+    {
+        type: "video",
+        url: "https://youtu.be/ydO0Y2RtVlk",
+        title: "Sin Aliento",
+        span: "small",
+    },
+    {
+        type: "image",
+        src: "/images/PP.webp",
+        span: "small",
+    },
+];
+---
+
+<section id="videos" class="bg-[#0D0D0D] py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">
+                Videos / Fotos
+            </p>
+            <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
+                Universo visual
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 auto-rows-[220px] md:grid-cols-3">
+            {
+                mediaItems.map((item, index) => (
+                    <article
+                        class={`media-item group relative overflow-hidden bg-black ${spanClasses[item.span]} ${
+                            index >= 4 ? "hidden md:block" : ""
+                        }`}
+                    >
+                        {item.type === "image" ? (
+                            <img
+                                src={item.src}
+                                alt=""
+                                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                            />
+                        ) : (
+                            <button
+                                class="relative h-full w-full"
+                                data-video-url={item.url}
+                            >
+                                <img
+                                    src={thumb(item.url)}
+                                    alt={item.title}
+                                    class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                />
+
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition" />
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="h-14 w-14 flex items-center justify-center rounded-full border border-white/60 bg-black/40">
+                                        ▶
+                                    </div>
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-4">
+                                    <p class="text-sm text-white">
+                                        {item.title}
+                                    </p>
+                                </div>
+                            </button>
+                        )}
+                    </article>
+                ))
+            }
+        </div>
+        <div class="mt-10 flex justify-center md:hidden">
+            <button
+                id="show-more-btn"
+                class="border border-white px-6 py-3 text-xs uppercase tracking-[0.25em] text-white transition hover:bg-white hover:text-black"
+            >
+                Ver más
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div
+    id="video-modal"
+    class="fixed inset-0 hidden items-center justify-center bg-black/90 z-50"
+>
+    <div class="relative w-full max-w-5xl p-4">
+        <button
+            id="close-modal"
+            class="absolute top-0 right-0 text-white text-2xl">✕</button
+        >
+
+        <div class="aspect-video">
+            <iframe
+                id="video-frame"
+                class="w-full h-full"
+                src=""
+                allow="autoplay"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    const buttons = document.querySelectorAll("[data-video-url]");
+    const modal = document.getElementById("video-modal");
+    const frame = document.getElementById("video-frame");
+    const closeBtn = document.getElementById("close-modal");
+
+    const getId = (url: string) => {
+        const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
+        return match ? match[1] : "";
+    };
+
+    const openVideo = (url: string) => {
+        if (!modal || !frame) return;
+
+        const id = getId(url);
+        frame.setAttribute(
+            "src",
+            `https://www.youtube.com/embed/${id}?autoplay=1`,
+        );
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+    };
+
+    const closeVideo = () => {
+        if (!modal || !frame) return;
+
+        frame.setAttribute("src", "");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "";
+    };
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const url = btn.getAttribute("data-video-url");
+            if (url) openVideo(url);
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeVideo);
+    }
+
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeVideo();
+        });
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeVideo();
+    });
+</script>
+<script>
+    const showMoreBtn = document.getElementById("show-more-btn");
+
+    showMoreBtn?.addEventListener("click", () => {
+        document.querySelectorAll(".media-item").forEach((el) => {
+            el.classList.remove("hidden");
+        });
+
+        showMoreBtn.remove(); // desaparece el botón
+    });
+</script>
