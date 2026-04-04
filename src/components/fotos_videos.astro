@@ -134,7 +134,7 @@ const mediaItems: MediaItem[] = [
                             <img
                                 src={item.src}
                                 alt=""
-                                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                class="h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy"
                             />
                         ) : (
                             <button
@@ -144,7 +144,7 @@ const mediaItems: MediaItem[] = [
                                 <img
                                     src={thumb(item.url)}
                                     alt={item.title}
-                                    class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                    class="h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy"
                                 />
 
                                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition" />
