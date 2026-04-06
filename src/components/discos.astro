@@ -57,7 +57,7 @@ const marqueeAlbums = [...albums, ...albums];
         </div>
 
         <div
-            class="marquee group flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8"
+            class="marquee flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8"
         >
             {
                 marqueeAlbums.map((album, index) => (
@@ -65,18 +65,18 @@ const marqueeAlbums = [...albums, ...albums];
                         href={album.spotifyUrl}
                         target="_blank"
                         rel="noreferrer"
-                        class="group relative block shrink-0 overflow-hidden bg-[#111111] w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
+                        class="group/card relative block shrink-0 overflow-hidden bg-[#111111] w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
                         aria-label={`Escuchar ${album.title} en Spotify`}
                     >
                         <div class="absolute inset-0 bg-[#111111]" />
                         <div class="absolute inset-0 bg-linear-to-br from-white/4 via-transparent to-white/2" />
 
-                        <div class="absolute inset-x-0 bottom-0 z-10 p-4 transition duration-300 group-hover:opacity-0">
+                        <div class="absolute inset-x-0 bottom-0 z-10 p-4 transition duration-300 group-hover/card:opacity-0">
                             <p class="text-sm text-white/70">{album.title}</p>
                         </div>
 
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover:bg-black/50 group-hover:opacity-100">
-                            <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover:translate-y-0">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover/card:bg-black/50 group-hover/card:opacity-100">
+                            <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover/card:translate-y-0">
                                 Escuchar en Spotify
                             </span>
                         </div>

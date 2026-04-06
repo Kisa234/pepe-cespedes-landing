@@ -43,25 +43,123 @@ import Footer from "../components/footer.astro";
     </main>
 
     <div class="section-fade"><Footer /></div>
+
+    <!-- MODAL VIDEOS (fuera de section-fade para evitar que transform rompa fixed) -->
+    <div id="video-modal" class="fixed inset-0 hidden z-[9999] bg-black/90" style="align-items:center; justify-content:center;">
+      <div class="relative w-full max-w-4xl mx-auto px-4">
+        <button id="close-modal" class="absolute -top-10 right-4 text-white/70 hover:text-white text-3xl leading-none transition">✕</button>
+        <div class="aspect-video w-full">
+          <iframe id="video-frame" class="w-full h-full" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL COLABORACIONES -->
+    <div id="colab-modal" class="fixed inset-0 hidden z-[9999] bg-black/90" style="align-items:center; justify-content:center;">
+      <div class="relative w-full max-w-4xl mx-auto px-4">
+        <button id="colab-close" class="absolute -top-10 right-4 text-white/70 hover:text-white text-3xl leading-none transition">✕</button>
+        <p id="colab-modal-artista" class="mb-1 text-[11px] uppercase tracking-[0.25em] text-white/50"></p>
+        <p id="colab-modal-titulo" class="mb-3 font-serif text-xl text-white"></p>
+        <div class="aspect-video w-full">
+          <iframe id="colab-frame" class="w-full h-full" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
 
 <script>
+  // ── Intersection Observer ──
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target); // una sola vez
+          observer.unobserve(entry.target);
         }
       });
     },
-    {
-      threshold: 0.08, // aparece cuando el 8% es visible
-    }
+    { threshold: 0.08 }
   );
+  document.querySelectorAll(".section-fade").forEach((el) => observer.observe(el));
 
-  document.querySelectorAll(".section-fade").forEach((el) => {
-    observer.observe(el);
+  // ── Helpers ──
+  const getYoutubeId = (url: string) => {
+    const match = url.match(/(?:youtu\.be\/|v=)([^&?]+)/);
+    return match ? match[1] : "";
+  };
+
+  // ── Modal Videos (fotos_videos) ──
+  const videoModal = document.getElementById("video-modal") as HTMLElement;
+  const videoFrame = document.getElementById("video-frame") as HTMLIFrameElement;
+  const videoClose = document.getElementById("close-modal");
+
+  const openVideo = (url: string) => {
+    const id = getYoutubeId(url);
+    videoFrame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    videoModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeVideo = () => {
+    videoFrame.src = "";
+    videoModal.style.display = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll("[data-video-url]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const url = btn.getAttribute("data-video-url");
+      if (url) openVideo(url);
+    });
+  });
+
+  videoClose?.addEventListener("click", closeVideo);
+  videoModal?.addEventListener("click", (e) => { if (e.target === videoModal) closeVideo(); });
+
+  // ── Modal Colaboraciones ──
+  const colabModal = document.getElementById("colab-modal") as HTMLElement;
+  const colabFrame = document.getElementById("colab-frame") as HTMLIFrameElement;
+  const colabClose = document.getElementById("colab-close");
+  const colabTitulo = document.getElementById("colab-modal-titulo");
+  const colabArtista = document.getElementById("colab-modal-artista");
+
+  const openColab = (embed: string, titulo: string, artista: string) => {
+    colabFrame.src = `${embed}?autoplay=1`;
+    if (colabTitulo) colabTitulo.textContent = titulo;
+    if (colabArtista) colabArtista.textContent = artista;
+    colabModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeColab = () => {
+    colabFrame.src = "";
+    colabModal.style.display = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".colab-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const embed = card.getAttribute("data-embed") ?? "";
+      const titulo = card.getAttribute("data-titulo") ?? "";
+      const artista = card.getAttribute("data-artista") ?? "";
+      openColab(embed, titulo, artista);
+    });
+  });
+
+  colabClose?.addEventListener("click", closeColab);
+  colabModal?.addEventListener("click", (e) => { if (e.target === colabModal) closeColab(); });
+
+  // ── Cerrar ambos con Escape ──
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { closeVideo(); closeColab(); }
+  });
+
+  // ── Ver más (fotos_videos mobile) ──
+  const showMoreBtn = document.getElementById("show-more-btn");
+  showMoreBtn?.addEventListener("click", () => {
+    document.querySelectorAll(".media-item").forEach((el) => el.classList.remove("hidden"));
+    showMoreBtn.remove();
   });
 </script>
