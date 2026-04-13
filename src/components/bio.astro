@@ -4,15 +4,17 @@
 <section id="bio" class="bg-black py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        <div class="grid lg:grid-cols-2 lg:gap-16 lg:items-stretch">
+        <div class="grid lg:grid-cols-2 lg:gap-16 lg:items-start">
 
             <!-- IMAGEN — 50% -->
             <div class="mb-10 lg:mb-0">
-                <div class="h-full min-h-125 overflow-hidden">
+                <div class="overflow-hidden" style="min-height: 600px; height: 100%;">
                     <img
                         src="/images/PPd2.webp"
                         alt="Pepe Céspedes"
                         class="h-full w-full object-cover object-top"
+                        style="min-height: 600px;"
+                        loading="lazy"
                     />
                 </div>
             </div>
@@ -40,94 +42,43 @@
                     <span class="mt-2 block text-white/40">— Pepe Céspedes</span>
                 </blockquote>
 
-                <!-- Páginas de texto -->
-                <div>
-                    <div id="bio-pages" class="space-y-5 text-white/70 leading-relaxed text-sm sm:text-base min-h-45">
-                        <!-- Contenido inyectado por JS -->
-                    </div>
-
-                    <!-- Paginador -->
-                    <div class="mt-8 flex items-center gap-4">
-                        <button
-                            id="bio-prev"
-                            class="flex h-9 w-9 items-center justify-center border border-white/20 text-white/40 transition hover:border-white/60 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
-                            aria-label="Anterior"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                            </svg>
-                        </button>
-
-                        <span id="bio-indicator" class="text-xs uppercase tracking-[0.2em] text-white/30"></span>
-
-                        <button
-                            id="bio-next"
-                            class="flex h-9 w-9 items-center justify-center border border-white/20 text-white/40 transition hover:border-white/60 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
-                            aria-label="Siguiente"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </button>
-                    </div>
+                <!-- Texto corrido -->
+                <div class="space-y-5 text-white/70 leading-relaxed text-sm sm:text-base">
+                    <p>
+                        Pepe Céspedes nació en Callao, Perú, en 1964. Desde niño, sus padres
+                        reconocieron su inclinación por la música, y lo ayudaron a definir su
+                        vocación. A los 12 años su padre lo llevó a ver a la Orquesta Contemporánea
+                        de Jaime Delgado Aparicio, precursor del jazz en el Perú, experiencia que
+                        marcó profundamente su camino.
+                    </p>
+                    <p>
+                        También tuvo la oportunidad de ver a muchas leyendas de la música tradicional
+                        peruana, como Arturo "Zambo" Cavero, con quien años después llegaría a
+                        compartir escenario.
+                    </p>
+                    <p>
+                        Encuentra un maestro clave en Jorge Madueño Romero, con quien estudia teoría,
+                        armonía y arreglos. Posteriormente profundiza su técnica e interpretación en
+                        el piano con Fernando De Lucchi.
+                    </p>
+                    <p>
+                        A lo largo de su carrera ha trabajado en diversos géneros musicales como la
+                        salsa, el rock, el jazz, la música brasileña y la música tradicional peruana.
+                    </p>
+                    <p>
+                        En 2005 inicia su camino como compositor fundando Manante, un trío
+                        instrumental con el que graba cuatro álbumes. En 2015 comienza su etapa como
+                        solista con un disco de piano solo, marcando el inicio de la búsqueda de un
+                        "piano peruano".
+                    </p>
+                    <p>
+                        Desde entonces ha continuado explorando y fusionando sonidos de las distintas
+                        regiones del Perú con la libertad e improvisación del jazz, desarrollando una
+                        voz musical única.
+                    </p>
                 </div>
 
             </div>
         </div>
     </div>
 </section>
-
-<script>
-    const paginas = [
-        [
-            "Pepe Céspedes nació en Callao, Perú, en 1964. Desde niño, sus padres reconocieron su inclinación por la música, y lo ayudaron a definir su vocación.",
-            "A los 12 años su padre lo llevó a ver a la Orquesta Contemporánea de Jaime Delgado Aparicio, precursor del jazz en el Perú, experiencia que marcó profundamente su camino.",
-        ],
-        [
-            "También tuvo la oportunidad de ver a muchas leyendas de la música tradicional peruana, como Arturo \"Zambo\" Cavero, con quien años después llegaría a compartir escenario.",
-            "Encuentra un maestro clave en Jorge Madueño Romero, con quien estudia teoría, armonía y arreglos. Posteriormente profundiza su técnica e interpretación en el piano con Fernando De Lucchi.",
-        ],
-        [
-            "A lo largo de su carrera ha trabajado en diversos géneros musicales como la salsa, el rock, el jazz, la música brasileña y la música tradicional peruana.",
-            "En 2005 inicia su camino como compositor fundando Manante, un trío instrumental con el que graba cuatro álbumes. En 2015 comienza su etapa como solista con un disco de piano solo, marcando el inicio de la búsqueda de un \"piano peruano\".",
-        ],
-        [
-            "Desde entonces ha continuado explorando y fusionando sonidos de las distintas regiones del Perú con la libertad e improvisación del jazz, desarrollando una voz musical única.",
-        ],
-    ];
-
-    let current = 0;
-
-    const container = document.getElementById("bio-pages");
-    const prevBtn = document.getElementById("bio-prev") as HTMLButtonElement;
-    const nextBtn = document.getElementById("bio-next") as HTMLButtonElement;
-    const indicator = document.getElementById("bio-indicator");
-
-    const render = () => {
-        if (!container || !indicator) return;
-
-        container.style.opacity = "0";
-
-        setTimeout(() => {
-            container.innerHTML = paginas[current]
-                .map(p => `<p>${p}</p>`)
-                .join("");
-            indicator.textContent = `${current + 1} / ${paginas.length}`;
-            prevBtn.disabled = current === 0;
-            nextBtn.disabled = current === paginas.length - 1;
-            container.style.opacity = "1";
-        }, 150);
-    };
-
-    container!.style.transition = "opacity 0.15s ease";
-
-    prevBtn.addEventListener("click", () => {
-        if (current > 0) { current--; render(); }
-    });
-
-    nextBtn.addEventListener("click", () => {
-        if (current < paginas.length - 1) { current++; render(); }
-    });
-
-    render();
-</script>

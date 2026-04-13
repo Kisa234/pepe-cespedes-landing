@@ -1,36 +1,29 @@
 ---
 type Evento = {
-    fecha: string;   // ej: "15 ABR"
-    año: string;     // ej: "2025"
-    lugar: string;   // ej: "Centro Cultural de la PUCP"
-    ciudad: string;  // ej: "Lima, Perú"
-    hora: string;    // ej: "8:00 PM"
-    entradas?: string; // URL opcional para comprar entradas
+    fecha: string;
+    año: string;
+    lugar: string;
+    ciudad: string;
+    hora: string;
+    entradas?: string;
+    pasado?: boolean;
 };
 
 const eventos: Evento[] = [
     {
-        fecha: "15 ABR",
-        año: "2025",
-        lugar: "Centro Cultural de la PUCP",
-        ciudad: "Lima, Perú",
-        hora: "8:00 PM",
-        entradas: "#",
+        fecha: "24 JUL",
+        año: "2026",
+        lugar: "Auditorio Ricardo Palma",
+        ciudad: "Av. Larco 770, Miraflores",
+        hora: "7:00 PM",
     },
     {
-        fecha: "28 ABR",
-        año: "2025",
-        lugar: "Auditorio del MALI",
-        ciudad: "Lima, Perú",
-        hora: "7:30 PM",
-        entradas: "#",
-    },
-    {
-        fecha: "10 MAY",
-        año: "2025",
-        lugar: "Teatro Marsano",
-        ciudad: "Lima, Perú",
+        fecha: "24 MAR",
+        año: "2026",
+        lugar: "Coppelius Bar",
+        ciudad: "Av. Angamos Este 2055, San Borja",
         hora: "8:00 PM",
+        pasado: true,
     },
 ];
 ---
@@ -50,12 +43,12 @@ const eventos: Evento[] = [
         {eventos.length > 0 ? (
             <div class="divide-y divide-white/10 border-y border-white/10">
                 {eventos.map((evento) => (
-                    <div class="group flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+                    <div class={`group flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between ${evento.pasado ? "opacity-40" : ""}`}>
 
                         <!-- Fecha -->
                         <div class="flex items-center gap-6 sm:w-32 shrink-0">
                             <div class="text-center">
-                                <p class="font-serif text-2xl leading-none text-white">{evento.fecha}</p>
+                                <p class={`font-serif text-2xl leading-none ${evento.pasado ? "line-through text-white/50" : "text-white"}`}>{evento.fecha}</p>
                                 <p class="mt-1 text-xs text-white/30">{evento.año}</p>
                             </div>
                         </div>
@@ -73,9 +66,13 @@ const eventos: Evento[] = [
                             </div>
                         </div>
 
-                        <!-- Botón entradas -->
+                        <!-- Botón estado -->
                         <div class="shrink-0">
-                            {evento.entradas ? (
+                            {evento.pasado ? (
+                                <span class="inline-block border border-white/10 px-5 py-2 text-xs uppercase tracking-[0.2em] text-white/20 cursor-default">
+                                    Finalizado
+                                </span>
+                            ) : evento.entradas ? (
                                 <a
                                     href={evento.entradas}
                                     target="_blank"

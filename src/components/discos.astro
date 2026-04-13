@@ -1,107 +1,216 @@
 ---
-const albums = [
-    {
-        title: "Disco 01",
-        spotifyUrl: "https://open.spotify.com/album/26FnmFwGVysg7BiFFrlyOG",
-    },
-    {
-        title: "Disco 02",
-        spotifyUrl: "https://open.spotify.com/album/placeholder-2",
-    },
-    {
-        title: "Disco 03",
-        spotifyUrl: "https://open.spotify.com/album/placeholder-3",
-    },
-    {
-        title: "Disco 04",
-        spotifyUrl: "https://open.spotify.com/album/placeholder-4",
-    },
-    {
-        title: "Disco 05",
-        spotifyUrl: "https://open.spotify.com/album/placeholder-5",
-    },
-    {
-        title: "Disco 06",
-        spotifyUrl: "https://open.spotify.com/album/placeholder-6",
-    },
-];
-
-// duplicamos para loop visual continuo
-const marqueeAlbums = [...albums, ...albums];
 ---
 
-<section id="discos" class="bg-black py-20 sm:py-28 overflow-hidden">
+<section id="discos" class="bg-black py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-            <p class="text-xs uppercase tracking-[0.3em] text-white/40">
-                Discos
-            </p>
+
+        <div class="mb-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">Discos</p>
             <h2 class="mt-2 font-serif text-3xl sm:text-4xl">Discografía</h2>
-            <p class="mt-4 max-w-2xl text-white/60">
-                Un recorrido por la obra musical de Pepe Céspedes.
-            </p>
-        </div>
-    </div>
-
-    <div class="relative">
-        <!-- degrade izquierda -->
-        <div
-            class="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black to-transparent sm:w-32"
-        >
+            <p class="mt-4 text-white/60">Un recorrido por la obra musical de Pepe Céspedes.</p>
         </div>
 
-        <!-- degrade derecha -->
-        <div
-            class="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black to-transparent sm:w-32"
-        >
+        <!-- Tabs -->
+        <div class="mb-10 flex flex-wrap gap-10 border-b border-white/10 pb-0">
+            <button data-tab="solista" class="disco-tab active-tab pb-4 text-xs uppercase tracking-[0.2em] text-white border-b-2 border-white transition">
+                Como solista
+            </button>
+            <button data-tab="grupos" class="disco-tab pb-4 text-xs uppercase tracking-[0.2em] text-white/30 border-b-2 border-transparent hover:text-white transition">
+                Grupos y colaboraciones
+            </button>
+            <button data-tab="sesionista" class="disco-tab pb-4 text-xs uppercase tracking-[0.2em] text-white/30 border-b-2 border-transparent hover:text-white transition">
+                Como sesionista
+            </button>
         </div>
 
-        <div
-            class="marquee flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8"
-        >
-            {
-                marqueeAlbums.map((album, index) => (
-                    <a
-                        href={album.spotifyUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        class="group/card relative block shrink-0 overflow-hidden bg-[#111111] w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
-                        aria-label={`Escuchar ${album.title} en Spotify`}
-                    >
-                        <div class="absolute inset-0 bg-[#111111]" />
-                        <div class="absolute inset-0 bg-linear-to-br from-white/4 via-transparent to-white/2" />
+        <!-- Panel: Solista -->
+        <div id="tab-solista" class="disco-panel">
+            <div class="grid gap-12 md:grid-cols-2">
 
-                        <div class="absolute inset-x-0 bottom-0 z-10 p-4 transition duration-300 group-hover/card:opacity-0">
-                            <p class="text-sm text-white/70">{album.title}</p>
-                        </div>
+                <!-- Álbumes -->
+                <div>
+                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Álbumes</p>
+                    <ul class="space-y-4">
+                        {[
+                            { año: "2015", titulo: "7 Pisos", formato: "Piano solo" },
+                            { año: "2016", titulo: "Picando Cebolla", formato: "Quinteto" },
+                            { año: "2017", titulo: "Casi Casi", formato: "Piano solo" },
+                            { año: "2018", titulo: "El Club de los Desubicados", formato: "Trío" },
+                            { año: "2020", titulo: "Fábulas del Choloblanco", formato: "Sexteto viento madera + piano" },
+                            { año: "2021", titulo: "Mejores Temas, Mejores Tomas (2015–2021)", formato: "Compilatorio" },
+                        ].map(item => (
+                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
+                                <div>
+                                    <p class="font-serif text-base text-white">{item.titulo}</p>
+                                    <p class="mt-0.5 text-xs text-white/40">{item.formato}</p>
+                                </div>
+                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover/card:bg-black/50 group-hover/card:opacity-100">
-                            <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover/card:translate-y-0">
-                                Escuchar en Spotify
-                            </span>
-                        </div>
-                    </a>
-                ))
-            }
+                <!-- Singles -->
+                <div>
+                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Singles</p>
+                    <ul class="space-y-4">
+                        {[
+                            { año: "2021", titulo: "Hopperiana", feat: "Ft. Aníbal Seminario-Sax" },
+                            { año: "2022", titulo: "La niña que baila", feat: "Ft. Nelson Rangell, Jorge Roeder, Alex Acuña" },
+                            { año: "2023", titulo: "Abrir los ojos", feat: "Remix. Ft. Vitu Valera" },
+                            { año: "2023", titulo: "Rumbo al río en Mototaxi", feat: "Remix. Ft. Vitu Valera" },
+                            { año: "2023", titulo: "Encadena", feat: "Remix. Ft. Vitu Valera" },
+                            { año: "2023", titulo: "Con solo un abrazo", feat: "Ft. Cemi" },
+                            { año: "2024", titulo: "Se toca antes de entrar", feat: "Piano solo" },
+                            { año: "2024", titulo: "Por la Libertad y el Picante de Doña Rosa / No pisarme el Césped", feat: "Piano solo" },
+                            { año: "2024", titulo: "Malé", feat: "Ft. Humberto Amésquita" },
+                        ].map(item => (
+                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
+                                <div>
+                                    <p class="font-serif text-base text-white">{item.titulo}</p>
+                                    <p class="mt-0.5 text-xs text-white/40">{item.feat}</p>
+                                </div>
+                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
+        <!-- Panel: Grupos y colaboraciones -->
+        <div id="tab-grupos" class="disco-panel hidden">
+            <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Manante -->
+                <div>
+                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con Manante</p>
+                    <ul class="space-y-4">
+                        {[
+                            { año: "2006", titulo: "Acomódate" },
+                            { año: "2008", titulo: "Para los engreídos" },
+                            { año: "2010", titulo: "Habla Tío" },
+                            { año: "2013", titulo: "Por la Misma Causa" },
+                        ].map(item => (
+                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
+                                <p class="font-serif text-base text-white">{item.titulo}</p>
+                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- Galería Brasil -->
+                <div>
+                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con Galería Brasil</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
+                            <p class="font-serif text-base text-white">Carnaval en Lince</p>
+                            <span class="shrink-0 text-sm text-white/30">2022</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Otros artistas -->
+                <div>
+                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con otros artistas</p>
+                    <ul class="space-y-4">
+                        {[
+                            { año: "2021", titulo: "Alas y Libertad", feat: "Sylvia Falcón" },
+                            { año: "2021", titulo: "Dos Mundos", feat: "Vali Cáceres" },
+                            { año: "2023", titulo: "Mito de Amor", feat: "Sylvia Falcón" },
+                            { año: "2024", titulo: "Falso Amor", feat: "Sylvia Falcón" },
+                            { año: "2024", titulo: "Jazz Fun", feat: "Mónica Gastelumendi" },
+                            { año: "2025", titulo: "La Matarina", feat: "Sylvia Falcón" },
+                            { año: "2026", titulo: "Blues Up", feat: "Ricardo Zárate" },
+                        ].map(item => (
+                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
+                                <div>
+                                    <p class="font-serif text-base text-white">{item.titulo}</p>
+                                    <p class="mt-0.5 text-xs text-white/40">junto a {item.feat}</p>
+                                </div>
+                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Panel: Sesionista -->
+        <div id="tab-sesionista" class="disco-panel hidden">
+            <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                    "Patricia Saravia — Entre el son y el corazón",
+                    "Los Hermanos Santa Cruz — Sin límites",
+                    "Sylvia Falcón — Yma Sumac 100 años (En Vivo)",
+                    "Sylvia Falcón — Qori Coya",
+                    "Sylvia Falcón — Fantasía Pokcra",
+                    "Sylvia Falcón — Machu Picchu",
+                    "Sylvia Falcón — Himno Nacional del Perú",
+                    "Karlhos Misajel — Un simple paso",
+                    "Omar Rojas — Seguir",
+                    "Eva Ayllón — Amanecer en ti",
+                    "Cecilia Barraza — Alborotando",
+                    "Cecilia Alessandra — Caudalosa",
+                    "Cecilia Alessandra — Hija del viento",
+                    "Cecilia Alessandra — Obsesión",
+                    "Pilar de la Hoz — Hozadías",
+                    "Jean Pierre Magnet y la Gran Banda — En Vivo",
+                    "Elena Romero — Volviendo a mi raíz",
+                    "Enrique Mesías — Mesías",
+                    "Martha Galdos — Respiraré",
+                    "Jorge Millones — Trámites Oníricos",
+                    "Julie Freundt — Sarambé",
+                    "Innfusion — Innfusion",
+                    "Innfusion — Acto Reflejo",
+                    "Augusto Gil \"El Galleta\" — Noches de Bohemia",
+                    "Alex Emery — Miles Away",
+                    "Vali Cáceres — Ciudad sin cielo \"10 años\"",
+                    "Cecilia Bracamonte — 50 años después",
+                    "Miki González — Landó por bulerías",
+                    "Coco Linares y Mammayé — Salsa, Son, Ritmo y Cajón",
+                    "Víctor Meléndez — Evocando mis raíces",
+                    "Yuri Juárez — Afroperuano",
+                    "Sofía Tosello y Yuri Juárez — Tangolandó",
+                    "Wolves as friends — 20 years",
+                    "Mirtha Guerrero — La Machete",
+                    "Eddy Orbegoso — Recuerdos",
+                ].map(item => (
+                    <li class="border-b border-white/8 pb-3 text-sm text-white/60">{item}</li>
+                ))}
+            </ul>
+        </div>
+
     </div>
 </section>
 
-<style>
-    .marquee {
-        animation: discos-marquee 28s linear infinite;
-    }
+<script>
+    const tabs = document.querySelectorAll(".disco-tab");
+    const panels = document.querySelectorAll(".disco-panel");
 
-    .marquee:hover {
-        animation-play-state: paused;
-    }
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const target = tab.getAttribute("data-tab");
 
-    @keyframes discos-marquee {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-50%);
-        }
-    }
-</style>
+            // Reset tabs
+            tabs.forEach(t => {
+                t.classList.remove("active-tab", "text-white", "border-white");
+                t.classList.add("text-white/30", "border-transparent");
+            });
+
+            // Activate clicked tab
+            tab.classList.add("active-tab", "text-white", "border-white");
+            tab.classList.remove("text-white/30", "border-transparent");
+
+            // Show matching panel
+            panels.forEach(panel => {
+                panel.id === `tab-${target}`
+                    ? panel.classList.remove("hidden")
+                    : panel.classList.add("hidden");
+            });
+        });
+    });
+</script>
