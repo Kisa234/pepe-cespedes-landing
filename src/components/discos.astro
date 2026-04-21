@@ -1,216 +1,83 @@
 ---
+const albums = [
+    { title: "7 Pisos Portada", spotifyUrl: "https://open.spotify.com/intl-es/album/6KDJ8ATpw6ZhbubKhIEMhe?si=ZdCS0OZmS_C0SvsO0TmMqw", image: "/images/discos/7 Pisos Portada.webp" },
+    { title: "Abrir los ojos", spotifyUrl: "https://open.spotify.com/intl-es/track/3K8pyhwL1IgWxjkQOvJbsL?si=eb703bf0b8724980", image: "/images/discos/Abrir los ojos 2000px (2).webp" },
+    { title: "Acomódate", spotifyUrl: "https://open.spotify.com/intl-es/track/6UVPpRiDwP1Qm528qVkSPZ?si=37620547e3304fd0", image: "/images/discos/Acomódate Portada.webp" },
+    { title: "Alas y Libertad", spotifyUrl: "https://open.spotify.com/intl-es/album/2GduHVd2UGF3KTZL32dxQY?si=hwqW7d2SRYeyod8WwgNUmg", image: "/images/discos/Alas y Libertad cdbaby.webp" },
+    { title: "Carnaval en Lince", spotifyUrl: "https://open.spotify.com/intl-es/track/71zisdw6txY21FCB07IJnq?si=97c4229e4ec844ab", image: "/images/discos/Carnaval en Lince Portada.webp" },
+    { title: "Casi Casi", spotifyUrl: "https://open.spotify.com/intl-es/album/42JAlikfucINaJYTNzJDpI?si=FNTZ0K7TRcSXMyP7b3a5SQ", image: "/images/discos/Casi Casi Portada.webp" },
+    { title: "Con solo un abrazo", spotifyUrl: "https://open.spotify.com/intl-es/album/3GBj9DIgbntd0NcWgm4FsF?si=sq5rgnGMSlmH-xSpymKQAA", image: "/images/discos/Con solo un abrazo.webp" },
+    { title: "Dos Mundos", spotifyUrl: "https://open.spotify.com/intl-es/track/2IpzfohFb7r9yhRhOfarm4?si=0eea0071de544d3c", image: "/images/discos/Dos Mundos.webp" },
+    { title: "El Club de los Desubicados", spotifyUrl: "https://open.spotify.com/intl-es/album/10nOuBn8meDfO1P2I5Z8NN?si=0QedBEWJTOS5Ddn0QLYpEA", image: "/images/discos/El Club de los Desubicados.webp" },
+    { title: "Encadena", spotifyUrl: "https://open.spotify.com/intl-es/track/7ogeyfyF5Qs9FwVGdOhvO3?si=2c5c1eadcd5c4d83", image: "/images/discos/Encadena 2000px (1).webp" },
+    { title: "Fábulas", spotifyUrl: "https://open.spotify.com/album/placeholder-11", image: "/images/discos/Fábulas arte.webp" },
+    { title: "Falso amor", spotifyUrl: "https://open.spotify.com/intl-es/album/32naIxXT7hWbHuX1ttLo1j?si=MJ3e0n8QR2Ot7xgGFvb1xw", image: "/images/discos/Falso amor.webp" },
+    { title: "Hoperiana", spotifyUrl: "https://open.spotify.com/album/placeholder-13", image: "/images/discos/Hoperiana Cover final.webp" },
+    { title: "Jazz Fun", spotifyUrl: "https://open.spotify.com/album/4dCtkuUCs338Vvqk3Dsrta?si=nG0uXHJQQWyDpZnt7XmuHw", image: "/images/discos/Jazz-Fun.webp" },
+    { title: "La Matarina", spotifyUrl: "https://open.spotify.com/intl-es/track/4y0qqtJ6JN6ylYt92cuuqS?si=c5ec817991304d92", image: "/images/discos/La-Matarina.webp" },
+    { title: "La Niña que baila", spotifyUrl: "https://open.spotify.com/intl-es/album/2HFAgn5jHmXkSDs2rfjz9U?si=PoXH-kG8Reu6cdxyMQDixg", image: "/images/discos/La-Niña-que-baila.webp" },
+    { title: "Male", spotifyUrl: "https://open.spotify.com/intl-es/album/4KK4fJZwMpK1JyjUJHPBZM?si=DR72GrhlQt6u9HiqynXKEg", image: "/images/discos/Male.webp" },
+    { title: "Mejores Temas Mejores Tomas", spotifyUrl: "https://open.spotify.com/intl-es/album/5dcZkiR38tjMtVPvTaEcjI?si=3209464c1b3b4113", image: "/images/discos/Mejores-Temas-Mejores-Tomas.webp" },
+    { title: "Mito de Amor", spotifyUrl: "https://open.spotify.com/intl-es/track/4eIYIHBvtlw4RrKxR2mDwL?si=8a2120ee53f4498d", image: "/images/discos/MITO-DE-AMOR-_1_.webp" },
+    { title: "Picando Cebolla", spotifyUrl: "https://open.spotify.com/intl-es/album/0fyQVKaPilcgU0LMqa74kN?si=2766xotLRK2Cn2c2ss_xIA", image: "/images/discos/Picando-Cebolla.webp" },
+    { title: "Por la Libertad", spotifyUrl: "https://open.spotify.com/intl-es/album/1bGvAqEsm3HNcnQT6HPh3L?si=8ae077ad8e2144fd", image: "/images/discos/Por-la-Libertad.webp" },
+    { title: "Rumbo al río en mototaxi", spotifyUrl: "https://open.spotify.com/intl-es/album/64qCnYaLoqGarXPFyTy0S7?si=PPK__uPXTB2MuOiz7Pp42A", image: "/images/discos/Rumbo-al-río-en-mototaxi-2000px-_1_.webp" },
+    { title: "Se toca antes de entrar", spotifyUrl: "https://open.spotify.com/intl-es/track/5ZVG9wIDIWYg1r6ONAmBwi?si=8084e90e9bac4321", image: "/images/discos/Se-toca-antes-de-entrar.webp" },
+];
+
+const marqueeAlbums = [...albums, ...albums];
 ---
 
-<section id="discos" class="bg-black py-20 sm:py-28">
+<section id="discos" class="bg-black py-20 sm:py-28 overflow-hidden">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        <div class="mb-12">
+        <div class="mb-10">
             <p class="text-xs uppercase tracking-[0.3em] text-white/40">Discos</p>
             <h2 class="mt-2 font-serif text-3xl sm:text-4xl">Discografía</h2>
-            <p class="mt-4 text-white/60">Un recorrido por la obra musical de Pepe Céspedes.</p>
+            <p class="mt-4 max-w-2xl text-white/60">Un recorrido por la obra musical de Pepe Céspedes.</p>
         </div>
+    </div>
 
-        <!-- Tabs -->
-        <div class="mb-10 flex flex-wrap gap-10 border-b border-white/10 pb-0">
-            <button data-tab="solista" class="disco-tab active-tab pb-4 text-xs uppercase tracking-[0.2em] text-white border-b-2 border-white transition">
-                Como solista
-            </button>
-            <button data-tab="grupos" class="disco-tab pb-4 text-xs uppercase tracking-[0.2em] text-white/30 border-b-2 border-transparent hover:text-white transition">
-                Grupos y colaboraciones
-            </button>
-            <button data-tab="sesionista" class="disco-tab pb-4 text-xs uppercase tracking-[0.2em] text-white/30 border-b-2 border-transparent hover:text-white transition">
-                Como sesionista
-            </button>
+    <div class="relative">
+        <div class="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black to-transparent sm:w-32"></div>
+        <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black to-transparent sm:w-32"></div>
+
+        <div class="marquee flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8">
+            {marqueeAlbums.map((album) => (
+                <a
+                    href={album.spotifyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="group/card relative block shrink-0 overflow-hidden w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
+                    aria-label={`Escuchar ${album.title} en Spotify`}
+                >
+                    <img
+                        src={album.image}
+                        alt={album.title}
+                        class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/card:scale-105"
+                    />
+                    <div class="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-black/80 to-transparent p-4 transition duration-300 group-hover/card:opacity-0">
+                        <p class="text-sm text-white/90">{album.title}</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover/card:bg-black/60 group-hover/card:opacity-100">
+                        <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover/card:translate-y-0">
+                            Escuchar en Spotify
+                        </span>
+                    </div>
+                </a>
+            ))}
         </div>
-
-        <!-- Panel: Solista -->
-        <div id="tab-solista" class="disco-panel">
-            <div class="grid gap-12 md:grid-cols-2">
-
-                <!-- Álbumes -->
-                <div>
-                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Álbumes</p>
-                    <ul class="space-y-4">
-                        {[
-                            { año: "2015", titulo: "7 Pisos", formato: "Piano solo" },
-                            { año: "2016", titulo: "Picando Cebolla", formato: "Quinteto" },
-                            { año: "2017", titulo: "Casi Casi", formato: "Piano solo" },
-                            { año: "2018", titulo: "El Club de los Desubicados", formato: "Trío" },
-                            { año: "2020", titulo: "Fábulas del Choloblanco", formato: "Sexteto viento madera + piano" },
-                            { año: "2021", titulo: "Mejores Temas, Mejores Tomas (2015–2021)", formato: "Compilatorio" },
-                        ].map(item => (
-                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
-                                <div>
-                                    <p class="font-serif text-base text-white">{item.titulo}</p>
-                                    <p class="mt-0.5 text-xs text-white/40">{item.formato}</p>
-                                </div>
-                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <!-- Singles -->
-                <div>
-                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Singles</p>
-                    <ul class="space-y-4">
-                        {[
-                            { año: "2021", titulo: "Hopperiana", feat: "Ft. Aníbal Seminario-Sax" },
-                            { año: "2022", titulo: "La niña que baila", feat: "Ft. Nelson Rangell, Jorge Roeder, Alex Acuña" },
-                            { año: "2023", titulo: "Abrir los ojos", feat: "Remix. Ft. Vitu Valera" },
-                            { año: "2023", titulo: "Rumbo al río en Mototaxi", feat: "Remix. Ft. Vitu Valera" },
-                            { año: "2023", titulo: "Encadena", feat: "Remix. Ft. Vitu Valera" },
-                            { año: "2023", titulo: "Con solo un abrazo", feat: "Ft. Cemi" },
-                            { año: "2024", titulo: "Se toca antes de entrar", feat: "Piano solo" },
-                            { año: "2024", titulo: "Por la Libertad y el Picante de Doña Rosa / No pisarme el Césped", feat: "Piano solo" },
-                            { año: "2024", titulo: "Malé", feat: "Ft. Humberto Amésquita" },
-                        ].map(item => (
-                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
-                                <div>
-                                    <p class="font-serif text-base text-white">{item.titulo}</p>
-                                    <p class="mt-0.5 text-xs text-white/40">{item.feat}</p>
-                                </div>
-                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Panel: Grupos y colaboraciones -->
-        <div id="tab-grupos" class="disco-panel hidden">
-            <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-
-                <!-- Manante -->
-                <div>
-                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con Manante</p>
-                    <ul class="space-y-4">
-                        {[
-                            { año: "2006", titulo: "Acomódate" },
-                            { año: "2008", titulo: "Para los engreídos" },
-                            { año: "2010", titulo: "Habla Tío" },
-                            { año: "2013", titulo: "Por la Misma Causa" },
-                        ].map(item => (
-                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
-                                <p class="font-serif text-base text-white">{item.titulo}</p>
-                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <!-- Galería Brasil -->
-                <div>
-                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con Galería Brasil</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
-                            <p class="font-serif text-base text-white">Carnaval en Lince</p>
-                            <span class="shrink-0 text-sm text-white/30">2022</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Otros artistas -->
-                <div>
-                    <p class="mb-6 text-[11px] uppercase tracking-[0.3em] text-white/30">Con otros artistas</p>
-                    <ul class="space-y-4">
-                        {[
-                            { año: "2021", titulo: "Alas y Libertad", feat: "Sylvia Falcón" },
-                            { año: "2021", titulo: "Dos Mundos", feat: "Vali Cáceres" },
-                            { año: "2023", titulo: "Mito de Amor", feat: "Sylvia Falcón" },
-                            { año: "2024", titulo: "Falso Amor", feat: "Sylvia Falcón" },
-                            { año: "2024", titulo: "Jazz Fun", feat: "Mónica Gastelumendi" },
-                            { año: "2025", titulo: "La Matarina", feat: "Sylvia Falcón" },
-                            { año: "2026", titulo: "Blues Up", feat: "Ricardo Zárate" },
-                        ].map(item => (
-                            <li class="flex items-start justify-between gap-4 border-b border-white/8 pb-4">
-                                <div>
-                                    <p class="font-serif text-base text-white">{item.titulo}</p>
-                                    <p class="mt-0.5 text-xs text-white/40">junto a {item.feat}</p>
-                                </div>
-                                <span class="shrink-0 text-sm text-white/30">{item.año}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Panel: Sesionista -->
-        <div id="tab-sesionista" class="disco-panel hidden">
-            <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {[
-                    "Patricia Saravia — Entre el son y el corazón",
-                    "Los Hermanos Santa Cruz — Sin límites",
-                    "Sylvia Falcón — Yma Sumac 100 años (En Vivo)",
-                    "Sylvia Falcón — Qori Coya",
-                    "Sylvia Falcón — Fantasía Pokcra",
-                    "Sylvia Falcón — Machu Picchu",
-                    "Sylvia Falcón — Himno Nacional del Perú",
-                    "Karlhos Misajel — Un simple paso",
-                    "Omar Rojas — Seguir",
-                    "Eva Ayllón — Amanecer en ti",
-                    "Cecilia Barraza — Alborotando",
-                    "Cecilia Alessandra — Caudalosa",
-                    "Cecilia Alessandra — Hija del viento",
-                    "Cecilia Alessandra — Obsesión",
-                    "Pilar de la Hoz — Hozadías",
-                    "Jean Pierre Magnet y la Gran Banda — En Vivo",
-                    "Elena Romero — Volviendo a mi raíz",
-                    "Enrique Mesías — Mesías",
-                    "Martha Galdos — Respiraré",
-                    "Jorge Millones — Trámites Oníricos",
-                    "Julie Freundt — Sarambé",
-                    "Innfusion — Innfusion",
-                    "Innfusion — Acto Reflejo",
-                    "Augusto Gil \"El Galleta\" — Noches de Bohemia",
-                    "Alex Emery — Miles Away",
-                    "Vali Cáceres — Ciudad sin cielo \"10 años\"",
-                    "Cecilia Bracamonte — 50 años después",
-                    "Miki González — Landó por bulerías",
-                    "Coco Linares y Mammayé — Salsa, Son, Ritmo y Cajón",
-                    "Víctor Meléndez — Evocando mis raíces",
-                    "Yuri Juárez — Afroperuano",
-                    "Sofía Tosello y Yuri Juárez — Tangolandó",
-                    "Wolves as friends — 20 years",
-                    "Mirtha Guerrero — La Machete",
-                    "Eddy Orbegoso — Recuerdos",
-                ].map(item => (
-                    <li class="border-b border-white/8 pb-3 text-sm text-white/60">{item}</li>
-                ))}
-            </ul>
-        </div>
-
     </div>
 </section>
 
-<script>
-    const tabs = document.querySelectorAll(".disco-tab");
-    const panels = document.querySelectorAll(".disco-panel");
-
-    tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-            const target = tab.getAttribute("data-tab");
-
-            // Reset tabs
-            tabs.forEach(t => {
-                t.classList.remove("active-tab", "text-white", "border-white");
-                t.classList.add("text-white/30", "border-transparent");
-            });
-
-            // Activate clicked tab
-            tab.classList.add("active-tab", "text-white", "border-white");
-            tab.classList.remove("text-white/30", "border-transparent");
-
-            // Show matching panel
-            panels.forEach(panel => {
-                panel.id === `tab-${target}`
-                    ? panel.classList.remove("hidden")
-                    : panel.classList.add("hidden");
-            });
-        });
-    });
-</script>
+<style>
+    .marquee {
+        animation: discos-marquee 90s linear infinite;
+    }
+    .marquee:hover {
+        animation-play-state: paused;
+    }
+    @keyframes discos-marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+</style>
