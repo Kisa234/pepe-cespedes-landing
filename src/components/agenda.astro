@@ -7,6 +7,7 @@ type Evento = {
     hora: string;
     entradas?: string;
     pasado?: boolean;
+    name?: string;
 };
 
 const eventos: Evento[] = [
@@ -16,6 +17,8 @@ const eventos: Evento[] = [
         lugar: "Auditorio Ricardo Palma",
         ciudad: "Av. Larco 770, Miraflores",
         hora: "7:00 PM",
+        entradas: "https://www.joinnus.com/events/concerts/lima-festival-jazz-con-sabor-peruano-concierto-aniversario-25-anos-75442",
+        name: "Festival Jazz con Sabor Peruano - Concierto Aniversario 25 Años",
     },
     {
         fecha: "24 MAR",
@@ -36,7 +39,7 @@ const eventos: Evento[] = [
                 Agenda
             </p>
             <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
-                Próximos eventos
+                Próximos conciertos
             </h2>
         </div>
 
@@ -52,6 +55,13 @@ const eventos: Evento[] = [
                                 <p class="mt-1 text-xs text-white/30">{evento.año}</p>
                             </div>
                         </div>
+
+                        <!-- Separador vertical (solo desktop) -->
+                        {evento.name && <div class="hidden sm:block w-px h-10 bg-white/10 shrink-0" />}
+
+                        {evento.name && (
+                            <p class="text-xs uppercase tracking-[0.2em] text-white/40 sm:max-w-[200px]">{evento.name}</p>
+                        )}
 
                         <!-- Separador vertical (solo desktop) -->
                         <div class="hidden sm:block w-px h-10 bg-white/10 shrink-0" />
