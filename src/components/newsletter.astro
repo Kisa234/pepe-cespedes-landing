@@ -1,0 +1,67 @@
+---
+---
+
+<section id="newsletter" class="relative overflow-hidden bg-zinc-900 py-24">
+  <!-- Línea decorativa superior -->
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-xl text-center">
+
+      <!-- Eyebrow -->
+      <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-white/40">
+        Novedades
+      </p>
+
+      <!-- Título -->
+      <h2 class="font-serif text-4xl text-white sm:text-5xl">
+        Mantente al tanto
+      </h2>
+
+      <!-- Subtítulo -->
+      <p class="mt-4 text-sm leading-relaxed text-white/50">
+        Deja tu correo para que estés al tanto de las novedades — conciertos, lanzamientos y más.
+      </p>
+
+      <!-- Formulario -->
+      <form
+        class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
+        onsubmit="handleNewsletter(event)"
+      >
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="tu@correo.com"
+          class="w-full border border-white/20 bg-white/5 px-5 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-white/60 sm:w-72"
+        />
+        <button
+          type="submit"
+          class="border border-white/60 px-7 py-3 text-xs uppercase tracking-[0.2em] text-white/80 transition hover:border-white hover:text-white"
+        >
+          Suscribirme
+        </button>
+      </form>
+
+      <!-- Mensaje de confirmación (oculto por defecto) -->
+      <p id="newsletter-ok" class="mt-6 hidden text-sm text-white/40">
+        ¡Gracias! Te avisamos cuando haya novedades.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Línea decorativa inferior -->
+  <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+</section>
+
+<script is:inline>
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    // Acá conectamos con el servicio de email (Mailchimp, Resend, etc.)
+    console.log("Email registrado:", email);
+    e.target.style.display = "none";
+    document.getElementById("newsletter-ok").classList.remove("hidden");
+  }
+</script>
