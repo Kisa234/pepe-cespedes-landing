@@ -54,14 +54,39 @@
   <!-- Línea decorativa inferior -->
   <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 </section>
-
 <script is:inline>
-  function handleNewsletter(e) {
+  async function handleNewsletter(e) {
     e.preventDefault();
-    const email = e.target.email.value;
-    // Acá conectamos con el servicio de email (Mailchimp, Resend, etc.)
-    console.log("Email registrado:", email);
-    e.target.style.display = "none";
-    document.getElementById("newsletter-ok").classList.remove("hidden");
+    const email = e.target.email.value.trim();
+    const button = e.target.querySelector('button[type="submit"]');
+
+    // Validación antes de llamar al servidor
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      e.target.email.focus();
+      return;
+    }
+
+    button.textContent = "Enviando...";
+    button.disabled = true;
+
+    try {
+      const res = await fetch("https://mailchimp-subscribe-515139981305.us-central1.run.app", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        e.target.style.display = "none";
+        document.getElementById("newsletter-ok").classList.remove("hidden");
+      } else {
+        button.textContent = "Inténtalo de nuevo";
+        button.disabled = false;
+      }
+    } catch {
+      button.textContent = "Inténtalo de nuevo";
+      button.disabled = false;
+    }
   }
 </script>
