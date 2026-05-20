@@ -4,19 +4,48 @@
 <section id="hero" class="relative min-h-screen overflow-hidden bg-black">
   <div class="absolute inset-0">
     <img
-      src="/images/PPd2.webp"
-      alt="Pepe Céspedes tocando piano" fetchpriority="high"
-      class="h-full w-full object-cover object-center"
+      src="/images/IMG_2260.webp"
+      alt="Pepe Céspedes al piano"
+      fetchpriority="high"
+      class="h-full w-full object-cover object-[75%_20%] sm:object-[center_20%]"
     />
-
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent"></div>
-    <div class="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-black/30"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/20"></div>
   </div>
 
   <div class="relative z-10 flex min-h-screen items-end md:items-center">
     <div class="mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:px-8">
       <div class="max-w-2xl">
+
+        <!-- Portada disco — inline, alineada con el texto -->
+        <div id="disco-card" class="fixed bottom-6 right-6 z-50 w-36 sm:w-56 group" style="animation: popupEntrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;">
+          <div class="relative">
+            <button
+              id="popup-close"
+              class="absolute -top-2 -right-2 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/40"
+              aria-label="Cerrar"
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+            <a href="#" target="_blank" rel="noreferrer"
+              class="block overflow-hidden rounded-xl shadow-2xl shadow-black/60 ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-1">
+              <img
+                src="/images/discos/El Club de los Desubicados.webp"
+                alt="El Club de los Desubicados — Pepe Céspedes Trío"
+                class="w-full object-cover"
+              />
+              <div class="bg-black/80 px-3 py-2 backdrop-blur-sm">
+                <p class="text-[9px] uppercase tracking-[0.2em] text-white/50">Último disco</p>
+                <p class="text-xs font-medium text-white leading-tight mt-0.5">El Club de los Desubicados</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-white/70 sm:text-xs">
           Pianista · Compositor
         </p>
@@ -29,65 +58,40 @@
         <div class="mt-8 flex items-center gap-4">
 
           <!-- YouTube -->
-          <a
-            href="https://www.youtube.com/user/tioppcc"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="YouTube"
-            class="text-white/40 transition hover:text-white"
-          >
+          <a href="https://www.youtube.com/user/tioppcc" target="_blank" rel="noreferrer" aria-label="YouTube"
+            class="text-white/40 transition hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
 
           <!-- Spotify -->
-          <a
-            href="https://open.spotify.com/artist/2wFNcJqk4srr647uj0Vjb7"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Spotify"
-            class="text-white/40 transition hover:text-white"
-          >
+          <a href="https://open.spotify.com/artist/2wFNcJqk4srr647uj0Vjb7" target="_blank" rel="noreferrer" aria-label="Spotify"
+            class="text-white/40 transition hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
             </svg>
           </a>
 
           <!-- Instagram -->
-          <a
-            href="https://www.instagram.com/ppcespedes/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            class="text-white/40 transition hover:text-white"
-          >
+          <a href="https://www.instagram.com/ppcespedes/" target="_blank" rel="noreferrer" aria-label="Instagram"
+            class="text-white/40 transition hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
             </svg>
           </a>
 
           <!-- TikTok -->
-          <a
-            href="https://www.tiktok.com/@ppcespedes"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="TikTok"
-            class="text-white/40 transition hover:text-white"
-          >
+          <a href="https://www.tiktok.com/@ppcespedes" target="_blank" rel="noreferrer" aria-label="TikTok"
+            class="text-white/40 transition hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
             </svg>
           </a>
 
           <!-- Facebook -->
-          <a
-            href="https://www.facebook.com/share/18PKYG7Z8h/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            class="text-white/40 transition hover:text-white"
-          >
+          <a href="https://www.facebook.com/share/18PKYG7Z8h/" target="_blank" rel="noreferrer" aria-label="Facebook"
+            class="text-white/40 transition hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
             </svg>
@@ -98,3 +102,25 @@
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes popupEntrance {
+    from { opacity: 0; transform: translateY(16px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>
+
+<script>
+  const discoCard = document.getElementById('disco-card');
+  const closeBtn = document.getElementById('popup-close');
+  if (closeBtn && discoCard) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      discoCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      discoCard.style.opacity = '0';
+      discoCard.style.transform = 'translateY(8px) scale(0.95)';
+      setTimeout(() => discoCard.remove(), 300);
+    });
+  }
+</script>
