@@ -1,84 +1,239 @@
 ---
 const albums = [
-    { title: "Blues Up", spotifyUrl: "https://open.spotify.com/album/629IX3Kpnw7mORdz0I2liO", image: "/images/discos/blues up.jpeg" },
-    { title: "7 Pisos Portada", spotifyUrl: "https://open.spotify.com/intl-es/album/6KDJ8ATpw6ZhbubKhIEMhe?si=ZdCS0OZmS_C0SvsO0TmMqw", image: "/images/discos/7 Pisos Portada.webp" },
-    { title: "Abrir los ojos", spotifyUrl: "https://open.spotify.com/intl-es/track/3K8pyhwL1IgWxjkQOvJbsL?si=eb703bf0b8724980", image: "/images/discos/Abrir los ojos 2000px (2).webp" },
-    { title: "Acomódate", spotifyUrl: "https://open.spotify.com/intl-es/track/6UVPpRiDwP1Qm528qVkSPZ?si=37620547e3304fd0", image: "/images/discos/Acomódate Portada.webp" },
-    { title: "Alas y Libertad", spotifyUrl: "https://open.spotify.com/intl-es/album/2GduHVd2UGF3KTZL32dxQY?si=hwqW7d2SRYeyod8WwgNUmg", image: "/images/discos/Alas y Libertad cdbaby.webp" },
-    { title: "Carnaval en Lince", spotifyUrl: "https://open.spotify.com/intl-es/track/71zisdw6txY21FCB07IJnq?si=97c4229e4ec844ab", image: "/images/discos/Carnaval en Lince Portada.webp" },
-    { title: "Casi Casi", spotifyUrl: "https://open.spotify.com/intl-es/album/42JAlikfucINaJYTNzJDpI?si=FNTZ0K7TRcSXMyP7b3a5SQ", image: "/images/discos/Casi Casi Portada.webp" },
-    { title: "Con solo un abrazo", spotifyUrl: "https://open.spotify.com/intl-es/album/3GBj9DIgbntd0NcWgm4FsF?si=sq5rgnGMSlmH-xSpymKQAA", image: "/images/discos/Con solo un abrazo.webp" },
-    { title: "Dos Mundos", spotifyUrl: "https://open.spotify.com/intl-es/track/2IpzfohFb7r9yhRhOfarm4?si=0eea0071de544d3c", image: "/images/discos/Dos Mundos.webp" },
-    { title: "El Club de los Desubicados", spotifyUrl: "https://open.spotify.com/intl-es/album/10nOuBn8meDfO1P2I5Z8NN?si=0QedBEWJTOS5Ddn0QLYpEA", image: "/images/discos/El Club de los Desubicados.webp" },
-    { title: "Encadena", spotifyUrl: "https://open.spotify.com/intl-es/track/7ogeyfyF5Qs9FwVGdOhvO3?si=2c5c1eadcd5c4d83", image: "/images/discos/Encadena 2000px (1).webp" },
-    { title: "Fábulas", spotifyUrl: "https://open.spotify.com/album/placeholder-11", image: "/images/discos/Fábulas arte.webp" },
-    { title: "Falso amor", spotifyUrl: "https://open.spotify.com/intl-es/album/32naIxXT7hWbHuX1ttLo1j?si=MJ3e0n8QR2Ot7xgGFvb1xw", image: "/images/discos/Falso amor.webp" },
-    { title: "Hoperiana", spotifyUrl: "https://open.spotify.com/album/placeholder-13", image: "/images/discos/Hoperiana Cover final.webp" },
-    { title: "Jazz Fun", spotifyUrl: "https://open.spotify.com/album/4dCtkuUCs338Vvqk3Dsrta?si=nG0uXHJQQWyDpZnt7XmuHw", image: "/images/discos/Jazz-Fun.webp" },
-    { title: "La Matarina", spotifyUrl: "https://open.spotify.com/intl-es/track/4y0qqtJ6JN6ylYt92cuuqS?si=c5ec817991304d92", image: "/images/discos/La-Matarina.webp" },
-    { title: "La Niña que baila", spotifyUrl: "https://open.spotify.com/intl-es/album/2HFAgn5jHmXkSDs2rfjz9U?si=PoXH-kG8Reu6cdxyMQDixg", image: "/images/discos/La-Niña-que-baila.webp" },
-    { title: "Male", spotifyUrl: "https://open.spotify.com/intl-es/album/4KK4fJZwMpK1JyjUJHPBZM?si=DR72GrhlQt6u9HiqynXKEg", image: "/images/discos/Male.webp" },
-    { title: "Mejores Temas Mejores Tomas", spotifyUrl: "https://open.spotify.com/intl-es/album/5dcZkiR38tjMtVPvTaEcjI?si=3209464c1b3b4113", image: "/images/discos/Mejores-Temas-Mejores-Tomas.webp" },
-    { title: "Mito de Amor", spotifyUrl: "https://open.spotify.com/intl-es/track/4eIYIHBvtlw4RrKxR2mDwL?si=8a2120ee53f4498d", image: "/images/discos/MITO-DE-AMOR-_1_.webp" },
-    { title: "Picando Cebolla", spotifyUrl: "https://open.spotify.com/intl-es/album/0fyQVKaPilcgU0LMqa74kN?si=2766xotLRK2Cn2c2ss_xIA", image: "/images/discos/Picando-Cebolla.webp" },
-    { title: "Por la Libertad", spotifyUrl: "https://open.spotify.com/intl-es/album/1bGvAqEsm3HNcnQT6HPh3L?si=8ae077ad8e2144fd", image: "/images/discos/Por-la-Libertad.webp" },
-    { title: "Rumbo al río en mototaxi", spotifyUrl: "https://open.spotify.com/intl-es/album/64qCnYaLoqGarXPFyTy0S7?si=PPK__uPXTB2MuOiz7Pp42A", image: "/images/discos/Rumbo-al-río-en-mototaxi-2000px-_1_.webp" },
-    { title: "Se toca antes de entrar", spotifyUrl: "https://open.spotify.com/intl-es/track/5ZVG9wIDIWYg1r6ONAmBwi?si=8084e90e9bac4321", image: "/images/discos/Se-toca-antes-de-entrar.webp" },
+    {
+        title: "Mejores Temas Mejores Tomas",
+        year: 2021,
+        image: "/images/discos/Mejores-Temas-Mejores-Tomas.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/1PSioaBY3XLxCuLO6kv9Pu?si=6LJl3oYVRRmJDFFZLqDXZA",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nbLq_eC1Y1VRUKtFDvxOn2quBxxiQRXws&si=ksxMd9NKE5ubXsVl",
+            apple: "https://music.apple.com/co/album/mejores-temas-mejores-tomas-2015-2021-remasterizado2021/1597169164",
+            deezer: "https://link.deezer.com/s/33lZzuMyvHRv2S59nEbRn",
+        },
+    },
+    {
+        title: "Fäbulas del Choloblanco",
+        year: 2020,
+        image: "/images/discos/Fábulas arte.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/45l9g5fWNQ7w2FxLh9hfui?si=i5zHvQewRbmY_qKoCJ1UWw",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nG8ZLYUdZMzTu7tqg1gG19_BLxMmFBhAU&si=oJrZvXHdUCpVtW7q",
+            deezer: "https://link.deezer.com/s/33lZefuBBROlBfOj8GfMu",
+        },
+    },
+    {
+        title: "El Club de los Desubicados",
+        year: 2018,
+        image: "/images/discos/El Club de los Desubicados.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/10nOuBn8meDfO1P2I5Z8NN?si=JAlUCsQGSxqr9SDA_P8v6Q",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_ljsf44cZTh_seZN7Jugruzq0NIA0pN3p4&si=vLJppFo7HjQCKFL2",
+            apple: "https://music.apple.com/us/album/el-club-de-los-desubicados/1441831756",
+            deezer: "https://link.deezer.com/s/33lZ4tsZLPLk3YboBPHXg",
+        },
+    },
+    {
+        title: "Casi Casi",
+        year: 2017,
+        image: "/images/discos/Casi Casi Portada.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/42JAlikfucINaJYTNzJDpI?si=lcn_CR5BR_Cwlg5jDKIaAQ",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_m4v62RpHQHGBp7NA8KmUdN079aJCo5Eeo&si=VazOb9Kdra4Tk2Z9",
+            apple: "https://music.apple.com/pe/album/casi-casi/1291381564",
+            deezer: "https://link.deezer.com/s/33lYWMbxyrRgX6vuqJdjI",
+        },
+    },
+    {
+        title: "Picando Cebolla",
+        year: 2016,
+        image: "/images/discos/Picando-Cebolla.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/0fyQVKaPilcgU0LMqa74kN?si=j38fHbeySKOAq-fJRJ5RFA",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nIU2N6VQQ0sxejx4jSirvEkxEyxJPCqas&si=cFk_IzKFMWuqlaiB",
+            apple: "https://music.apple.com/es/album/picando-cebolla/1128453592",
+            deezer: "https://link.deezer.com/s/33lYO5E4qd2zucpTi7jId",
+            tidal: "https://tidal.com/album/419863542/u",
+        },
+    },
+    {
+        title: "7 Pisos",
+        year: 2015,
+        image: "/images/discos/7 Pisos Portada.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/6KDJ8ATpw6ZhbubKhIEMhe?si=6Yu1qm0PTEWILF1R5RYm7w",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nm1xKwrDySa8xZ2Wivv0e9NeOaA0i6tCw&si=gD7W1zdOyHmjbeN8",
+            apple: "https://music.apple.com/us/album/7-pisos/976765759",
+            deezer: "https://link.deezer.com/s/33lYv3HMy6p0iysEPOMah",
+            tidal: "https://tidal.com/album/44001950/u",
+        },
+    },
 ];
-
-const marqueeAlbums = [...albums, ...albums];
 ---
 
-<section id="discos" class="bg-black py-20 sm:py-28 overflow-hidden">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-            <!-- <p class="text-xs uppercase tracking-[0.3em] text-white/40">Discos</p> -->
-            <h2 class="mt-2 font-serif text-3xl sm:text-4xl">Discografía</h2>
-            <p class="mt-4 max-w-2xl text-white/60">Un recorrido por la obra musical de Pepe Céspedes.</p>
+<section id="discos" class="bg-black py-20 sm:py-28">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/40">Discografía</p>
+            <h2 class="mt-2 font-serif text-3xl sm:text-4xl text-white">Álbumes</h2>
+            <p class="mt-3 text-white/50 text-sm">Un recorrido por la obra musical de Pepe Céspedes.</p>
         </div>
-    </div>
 
-    <div class="relative">
-        <div class="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black to-transparent sm:w-32"></div>
-        <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black to-transparent sm:w-32"></div>
-
-        <div class="marquee flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:px-8">
-            {marqueeAlbums.map((album) => (
-                <a
-                    href={album.spotifyUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="group/card relative block shrink-0 overflow-hidden w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
-                    aria-label={`Escuchar ${album.title} en Spotify`}
-                >
-                    <img
-                        src={album.image}
-                        alt={album.title}
-                        class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/card:scale-105"
-                    />
-                    <div class="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-black/80 to-transparent p-4 transition duration-300 group-hover/card:opacity-0">
-                        <p class="text-sm text-white/90">{album.title}</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition duration-300 group-hover/card:bg-black/60 group-hover/card:opacity-100">
-                        <span class="translate-y-2 text-center text-[11px] uppercase tracking-[0.25em] text-white transition duration-300 group-hover/card:translate-y-0">
-                            Escuchar en Spotify
-                        </span>
-                    </div>
-                </a>
+        <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3">
+            {albums.map((album) => (
+                <li>
+                    <button
+                        class="album-trigger group relative w-full aspect-square overflow-hidden rounded-xl text-left"
+                        data-album={JSON.stringify(album)}
+                        aria-label={`${album.title} — ${album.year}. Ver plataformas.`}
+                        aria-haspopup="dialog"
+                    >
+                        <img
+                            src={album.image}
+                            alt={album.title}
+                            class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 transition duration-300 group-hover:opacity-0">
+                            <p class="text-[10px] text-white/40 tabular-nums">{album.year}</p>
+                            <p class="text-sm sm:text-base font-medium text-white leading-tight">{album.title}</p>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition duration-300 group-hover:opacity-100">
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-white/90 px-4 text-center leading-relaxed">
+                                Ver plataformas
+                            </span>
+                        </div>
+                    </button>
+                </li>
             ))}
-        </div>
+        </ul>
+
     </div>
 </section>
 
-<style>
-    .marquee {
-        animation: discos-marquee 90s linear infinite;
+<!-- Modal álbumes — style inline para evitar conflicto con section-fade/transform -->
+<div
+    id="album-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-album-title"
+    style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; padding:1rem;"
+>
+    <div id="album-modal-backdrop" style="position:absolute; inset:0; background:rgba(0,0,0,0.82); backdrop-filter:blur(4px);"></div>
+
+    <div style="position:relative; width:100%; max-width:22rem; border-radius:1rem; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,0.08); box-shadow:0 25px 60px rgba(0,0,0,0.8);">
+
+        <img id="album-modal-cover" src="" alt="" style="width:100%; aspect-ratio:1/1; object-fit:cover; display:block;" />
+
+        <div style="padding:1.25rem;">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1rem;">
+                <div>
+                    <p id="album-modal-title" style="font-size:1rem; font-weight:600; color:#fff; line-height:1.3; margin:0;"></p>
+                    <p id="album-modal-year" style="font-size:0.7rem; color:rgba(255,255,255,0.35); margin:0.2rem 0 0;"></p>
+                </div>
+                <button id="album-modal-close"
+                    style="background:none; border:none; color:rgba(255,255,255,0.3); font-size:1.1rem; cursor:pointer; line-height:1; padding:0; margin-left:1rem; margin-top:0.1rem; transition:color 0.15s;"
+                    aria-label="Cerrar"
+                    onmouseover="this.style.color='#fff'"
+                    onmouseout="this.style.color='rgba(255,255,255,0.3)'"
+                >✕</button>
+            </div>
+
+            <ul id="album-modal-links" style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.5rem;"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    interface AlbumLinks {
+        spotify?: string;
+        youtube?: string;
+        apple?: string;
+        deezer?: string;
+        tidal?: string;
     }
-    .marquee:hover {
-        animation-play-state: paused;
+    interface Album {
+        title: string;
+        year: number;
+        image: string;
+        links: AlbumLinks;
     }
-    @keyframes discos-marquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+
+    const modal     = document.getElementById('album-modal')!          as HTMLElement;
+    const backdrop  = document.getElementById('album-modal-backdrop')! as HTMLElement;
+    const closeBtn  = document.getElementById('album-modal-close')!    as HTMLElement;
+    const cover     = document.getElementById('album-modal-cover')!    as HTMLImageElement;
+    const titleEl   = document.getElementById('album-modal-title')!    as HTMLElement;
+    const yearEl    = document.getElementById('album-modal-year')!     as HTMLElement;
+    const linksEl   = document.getElementById('album-modal-links')!    as HTMLElement;
+
+    const platforms: { key: keyof AlbumLinks; label: string; color: string; bg: string; border: string; svgPath: string }[] = [
+        {
+            key: 'spotify', label: 'Spotify',
+            color: '#4ade80', bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.25)',
+            svgPath: 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z'
+        },
+        {
+            key: 'youtube', label: 'YouTube Music',
+            color: '#f87171', bg: 'rgba(239,68,68,0.1)', border: 'rgba(239,68,68,0.25)',
+            svgPath: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'
+        },
+        {
+            key: 'apple', label: 'Apple Music',
+            color: 'rgba(255,255,255,0.8)', bg: 'rgba(255,255,255,0.07)', border: 'rgba(255,255,255,0.14)',
+            svgPath: 'M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z'
+        },
+        {
+            key: 'deezer', label: 'Deezer',
+            color: '#c084fc', bg: 'rgba(168,85,247,0.1)', border: 'rgba(168,85,247,0.25)',
+            svgPath: 'M18.944 16.088H24v1.664h-5.056zM18.944 13.448H24v1.664h-5.056zM18.944 10.808H24v1.664h-5.056zM18.944 8.168H24v1.664h-5.056zM12.472 18.728H17.528v1.664H12.472zM12.472 16.088H17.528v1.664H12.472zM12.472 13.448H17.528v1.664H12.472zM6 18.728h5.056v1.664H6zM6 16.088h5.056v1.664H6zM0 18.728h4.944v1.664H0z'
+        },
+        {
+            key: 'tidal', label: 'Tidal',
+            color: 'rgba(255,255,255,0.6)', bg: 'rgba(255,255,255,0.05)', border: 'rgba(255,255,255,0.1)',
+            svgPath: 'M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004zM8.008 11.988l-4.004 4.004 4.004 4.004 4.004-4.004z'
+        },
+    ];
+
+    function openModal(album: Album) {
+        cover.src           = album.image;
+        cover.alt           = album.title;
+        titleEl.textContent = album.title;
+        yearEl.textContent  = String(album.year);
+
+        linksEl.innerHTML = platforms
+            .filter(p => album.links[p.key])
+            .map(p => `
+                <li>
+                    <a href="${album.links[p.key]}" target="_blank" rel="noreferrer"
+                        style="display:flex; align-items:center; gap:0.625rem; padding:0.625rem 0.75rem; border-radius:0.5rem; background:${p.bg}; border:1px solid ${p.border}; color:${p.color}; font-size:0.7rem; font-weight:600; letter-spacing:0.05em; text-decoration:none; transition:filter 0.15s;"
+                        onmouseover="this.style.filter='brightness(1.15)'"
+                        onmouseout="this.style.filter='brightness(1)'"
+                    >
+                        <svg style="width:0.875rem; height:0.875rem; flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="${p.svgPath}"/></svg>
+                        ${p.label}
+                        <svg style="width:0.625rem; height:0.625rem; margin-left:auto; opacity:0.4;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    </a>
+                </li>
+            `).join('');
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
-</style>
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('.album-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const album: Album = JSON.parse(btn.dataset.album!);
+            openModal(album);
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
