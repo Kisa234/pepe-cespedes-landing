@@ -169,6 +169,87 @@ const singles = [
         },
     },
 ];
+
+const colaboraciones = [
+    {
+        title: "La Matarina",
+        year: 2025,
+        image: "/images/discos/La-Matarina.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/26FnmFwGVysg7BiFFrlyOG?si=UBUPo5yXQt28gCrEc_OklQ",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_np3p5YTSnEP78NTXSbGOKtdtFf9vNe5E&si=PzMIpxLjNyi7qYH2",
+            apple: "https://music.apple.com/cl/song/la-matarina/1789081960",
+            deezer: "https://link.deezer.com/s/33s4FUvU5hR0aepQOQ5lH",
+        },
+    },
+    {
+        title: "Jazz Fun",
+        year: 2024,
+        image: "/images/discos/Jazz-Fun.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/4dCtkuUCs338Vvqk3Dsrta?si=Zu3y2H3nQMCyoM1Rb2taPA",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_mIkTiTaQPVEckPKTpCPWo29R7tGt5xbs&si=Noym3l1yxSXp0lHo",
+            apple: "https://music.apple.com/ar/album/jazz-fun-single/1761695498",
+            deezer: "https://link.deezer.com/s/33s4zZGCVFCAXUS0NKJb0",
+        },
+    },
+    {
+        title: "Falso Amor",
+        year: 2024,
+        image: "/images/discos/Falso amor.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/32naIxXT7hWbHuX1ttLo1j?si=q_zGM3IGSjqj-MWDMCdcKQ",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_kHbH57R_hxQ334gss0Uwjx5UrRhOO2u78&si=3117FbQ9ig-AhAn",
+            apple: "https://music.apple.com/es/album/falso-amor-single/1750312986",
+            deezer: "https://link.deezer.com/s/33s4uHdtr5iOpyM48K9ni",
+        },
+    },
+    {
+        title: "Mito de Amor",
+        year: 2023,
+        image: "/images/discos/MITO-DE-AMOR-_1_.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/5098V8VJFOsLfg4ELB3njB?si=1Tk9rMD8Q2mBlCNm40TJiQ",
+            youtube: "https://youtu.be/iE5Xw5kXVbU?si=uBvUOC3qx5WBPSKJ",
+            apple: "https://music.apple.com/pe/album/mito-de-amor-single/1667419531",
+            deezer: "https://link.deezer.com/s/33s4k8UPCrmqysKPObTn1",
+        },
+    },
+    {
+        title: "Carnaval en Lince",
+        year: 2022,
+        image: "/images/discos/Carnaval en Lince Portada.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/7vI2EmUNvr3rw3W7kVMUe0?si=peOeAZQJRMu9yfWt0bdGpA",
+            youtube: "https://music.youtube.com/playlist?list=OLAK5uy_kxYWIFQ-MMfEFN6rGirrXEIDe2nV6aM0&si=H_2pYUleqgeZuY_l",
+            apple: "https://music.apple.com/us/album/carnaval-en-lince/1687717498?l=pt-BR",
+            deezer: "https://link.deezer.com/s/33s4b5uVFnIyo489Zyakq",
+        },
+    },
+    {
+        title: "Dos Mundos",
+        year: 2021,
+        image: "/images/discos/Dos Mundos.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/2ZimPnxA3t07iLXfqgBQJL?si=Ank0o4kCSnq7JuzqrWV40A",
+            youtube: "https://youtu.be/hUd3jr9lVJE?si=YY_DiGRMTGHhFSH7",
+            apple: "https://music.apple.com/us/song/dos-mundos/1585897515",
+            deezer: "https://link.deezer.com/s/33s3YY6jiGQrbmijeMn2U",
+            tidal: "https://tidal.com/album/197675771/u",
+        },
+    },
+    {
+        title: "Alas y Libertad",
+        year: 2021,
+        image: "/images/discos/Alas y Libertad cdbaby.webp",
+        links: {
+            spotify: "https://open.spotify.com/album/2GduHVd2UGF3KTZL32dxQY?si=orMnHs-dQ96HQy7p-WeHCg",
+            youtube: "https://youtu.be/YISa3Ww3gJg?si=15Wt5eI2dYuqkIHA",
+            apple: "https://music.apple.com/pe/song/alas-y-libertad/1570456749",
+            deezer: "https://link.deezer.com/s/33s3NSwTlarClmZ8asE3N",
+        },
+    },
+];
 ---
 
 <section id="discos" class="bg-black py-20 sm:py-28">
@@ -191,6 +272,11 @@ const singles = [
                     class="disco-tab px-5 py-2.5 text-sm font-medium text-white/35 border-b-2 border-transparent transition-colors hover:text-white/70"
                     data-tab="singles"
                 >Singles & EPs</button>
+                <button
+                    id="tab-colabs"
+                    class="disco-tab px-5 py-2.5 text-sm font-medium text-white/35 border-b-2 border-transparent transition-colors hover:text-white/70"
+                    data-tab="colabs"
+                >Colaboraciones</button>
             </div>
         </div>
 
@@ -254,6 +340,37 @@ const singles = [
             </ul>
         </div>
 
+
+        <!-- Colaboraciones -->
+        <div id="panel-colabs" style="display:none;">
+            <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+                {colaboraciones.map((item) => (
+                    <li>
+                        <button
+                            class="album-trigger group relative w-full aspect-square overflow-hidden rounded-xl text-left"
+                            data-album={JSON.stringify(item)}
+                            aria-label={`${item.title} — ${item.year}. Ver plataformas.`}
+                            aria-haspopup="dialog"
+                        >
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 transition duration-300 group-hover:opacity-0">
+                                <p class="text-[10px] text-white/40 tabular-nums">{item.year}</p>
+                                <p class="text-sm sm:text-base font-medium text-white leading-tight">{item.title}</p>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition duration-300 group-hover:opacity-100">
+                                <span class="text-[11px] uppercase tracking-[0.2em] text-white/90 px-4 text-center leading-relaxed">Ver plataformas</span>
+                            </div>
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
     </div>
 </section>
 
@@ -306,23 +423,31 @@ const singles = [
     }
 
     // ── Tabs ──
-    const tabAlbums   = document.getElementById('tab-albums')!   as HTMLButtonElement;
-    const tabSingles  = document.getElementById('tab-singles')!  as HTMLButtonElement;
-    const panelAlbums = document.getElementById('panel-albums')! as HTMLElement;
-    const panelSingles= document.getElementById('panel-singles')!as HTMLElement;
+    const tabAlbums   = document.getElementById('tab-albums')!  as HTMLButtonElement;
+    const tabSingles  = document.getElementById('tab-singles')! as HTMLButtonElement;
+    const tabColabs   = document.getElementById('tab-colabs')!  as HTMLButtonElement;
+    const panelAlbums = document.getElementById('panel-albums')!  as HTMLElement;
+    const panelSingles= document.getElementById('panel-singles')! as HTMLElement;
+    const panelColabs = document.getElementById('panel-colabs')!  as HTMLElement;
 
-    function activateTab(tab: 'albums' | 'singles') {
-        const isAlbums = tab === 'albums';
-        tabAlbums.style.color        = isAlbums ? '#fff' : 'rgba(255,255,255,0.35)';
-        tabAlbums.style.borderColor  = isAlbums ? '#fff' : 'transparent';
-        tabSingles.style.color       = isAlbums ? 'rgba(255,255,255,0.35)' : '#fff';
-        tabSingles.style.borderColor = isAlbums ? 'transparent' : '#fff';
-        panelAlbums.style.display    = isAlbums ? 'block' : 'none';
-        panelSingles.style.display   = isAlbums ? 'none'  : 'block';
+    const INACTIVE = 'rgba(255,255,255,0.35)';
+    const ACTIVE   = '#fff';
+
+    function activateTab(tab: 'albums' | 'singles' | 'colabs') {
+        const tabs   = [tabAlbums,   tabSingles,   tabColabs];
+        const panels = [panelAlbums, panelSingles, panelColabs];
+        const keys   = ['albums', 'singles', 'colabs'];
+        tabs.forEach((t, i) => {
+            const active = keys[i] === tab;
+            t.style.color       = active ? ACTIVE : INACTIVE;
+            t.style.borderColor = active ? ACTIVE : 'transparent';
+            panels[i].style.display = active ? 'block' : 'none';
+        });
     }
 
     tabAlbums.addEventListener('click',  () => activateTab('albums'));
     tabSingles.addEventListener('click', () => activateTab('singles'));
+    tabColabs.addEventListener('click',  () => activateTab('colabs'));
 
     // ── Teleport modal al body para escapar del transform de section-fade ──
     const tpl = document.getElementById('album-modal-template') as HTMLTemplateElement;
