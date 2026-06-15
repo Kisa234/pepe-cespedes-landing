@@ -9,32 +9,18 @@ type NotaPrensa = {
 
 const notas: NotaPrensa[] = [
     {
+        medio: "El Peruano",
+        titulo: "Sylvia Falcón y Pepe Céspedes ofrecerán recital por los 25 años del Festival Jazz Con Sabor Peruano",
+        descripcion: "El Festival Jazz con Sabor Peruano, fundado por Pepe Céspedes en 2001, celebra un cuarto de siglo con un concierto único junto a la cantante Sylvia Falcón, el 24 de julio en el Centro Cultural Ricardo Palma.",
+        url: "https://elperuano.pe/noticia/297285-sylvia-falcon-y-pepe-cespedes-ofreceran-recital-por-los-25-anos-del-festival-jazz-con-sabor-peruano",
+        año: "2026",
+    },
+    {
         medio: "RPP Noticias",
         titulo: "Pepe Céspedes presenta disco compilatorio de sus mejores temas",
         descripcion: "El pianista lanzó «Mejores temas, mejores tomas 2015–2021», un álbum que recopila nueve instrumentales de sus cinco discos como solista, remezclados y presentados también en vinilo.",
         url: "https://rpp.pe/musica/nacional/pepe-cespedes-maestro-del-piano-peruano-presenta-un-disco-compilatorio-de-sus-mejores-temas-noticia-1386964",
         año: "2022",
-    },
-    // {
-    //     medio: "UPC Cultural",
-    //     titulo: "Sesiones EDM con Pepe Céspedes",
-    //     descripcion: "El pianista y docente de la Escuela de Música de la UPC comparte su acercamiento a la música peruana, los momentos clave de su carrera y consejos para estudiantes.",
-    //     url: "https://cultural.upc.edu.pe/arteycultura/pepe-cespedes",
-    //     año: "2021",
-    // },
-    // {
-    //     medio: "RPP Noticias",
-    //     titulo: "Primer concierto solista del pianista Pepe Céspedes",
-    //     descripcion: "El pianista ofreció su primer concierto como solista en Miraflores, acompañado por Mario Cuba en el contrabajo y Alex Sarrín en la batería, como antesala a su debut discográfico.",
-    //     url: "https://rpp.pe/musica/conciertos/primer-concierto-solista-del-pianista-pepe-cespedes-noticia-659916",
-    //     año: "2014",
-    // },
-    {
-        medio: "Perú 21",
-        titulo: "Pepe Céspedes: «Cuesta vencer el miedo de ser alguien»",
-        descripcion: "Una entrevista en profundidad donde el pianista reflexiona sobre su identidad artística, la búsqueda de un sonido propio y los retos de consolidarse como músico independiente.",
-        url: "https://peru21.pe/cultura/pepe-cespedes-cuesta-vencer-miedo-alguien-66537-noticia/",
-        año: "2013",
     },
 ];
 
@@ -52,9 +38,6 @@ const medioIcono: Record<string, string> = {
             <h2 class="mt-2 font-serif text-3xl sm:text-4xl">
                 Prensa
             </h2>
-            <p class="mt-4 max-w-2xl text-white/60">
-                Lo que los medios dicen de nuestro trabajo
-            </p>
         </div>
 
         <div class="grid gap-px bg-white/8 sm:grid-cols-2">
