@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <section id="hero" class="relative min-h-screen overflow-hidden bg-black">
@@ -9,135 +10,281 @@
       fetchpriority="high"
       class="h-full w-full object-cover object-[75%_20%] sm:object-[center_20%]"
     />
-    <div class="absolute inset-0 bg-black/50"></div>
+    <!-- <div class="absolute inset-0 bg-black/50"></div>
     <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
-    <div class="absolute inset-0 bg-linear-to-r from-black/70 via-transparent to-black/20"></div>
+    <div class="absolute inset-0 bg-linear-to-r from-black/70 via-transparent to-black/20"></div> -->
+
+    <div class="absolute inset-0 bg-black/25"></div>
+    <div
+      class="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-black/10"
+    >
+    </div>
   </div>
 
   <div class="relative z-10 flex min-h-screen items-end md:items-center">
-    <div class="mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:px-8">
+    <div
+      class="mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:px-8"
+    >
       <div class="max-w-2xl">
-
         <!-- Popup Blues Up -->
-        <div id="disco-card"
+        <div
+          id="disco-card"
           class="fixed bottom-6 right-6 z-50 w-52 sm:w-64"
-          style="animation: popupEntrance 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.8s both; perspective: 1000px;">
-
-          <button id="popup-close"
+          style="animation: popupEntrance 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.8s both; perspective: 1000px;"
+        >
+          <button
+            id="popup-close"
             class="absolute -top-2 -right-2 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/40"
-            aria-label="Cerrar" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            aria-label="Cerrar"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-2.5 w-2.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
 
           <!-- Flipper -->
-          <div id="flipper"
+          <div
+            id="flipper"
             class="grid rounded-xl shadow-2xl shadow-black/70 ring-1 ring-white/10"
-            style="transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);">
-
+            style="transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);"
+          >
             <!-- FRONT -->
-            <div id="card-front"
+            <div
+              id="card-front"
               class="col-start-1 row-start-1 cursor-pointer rounded-xl overflow-hidden bg-[#0a0a0a]"
-              style="backface-visibility: hidden;">
+              style="backface-visibility: hidden;"
+            >
               <img
                 src="/images/discos/blues up.jpeg"
                 alt="Blues Up — Pepe Céspedes & Ricardo Zárate"
                 class="w-full aspect-square object-cover block"
               />
               <div class="bg-black px-3 pt-2.5 pb-3">
-                <p class="text-[8px] uppercase tracking-[0.2em] text-white/40">Nuevo single · 2026</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-white/40">
+                  Nuevo single · 2026
+                </p>
                 <p class="text-xs font-bold text-white mt-0.5">Blues Up</p>
                 <p class="text-[8px] text-white/30 mt-1">Escuchar →</p>
               </div>
             </div>
 
             <!-- BACK -->
-            <div id="card-back"
+            <div
+              id="card-back"
               class="col-start-1 row-start-1 rounded-xl overflow-hidden bg-[#0a0a0a]"
-              style="backface-visibility: hidden; transform: rotateY(180deg);">
-
-              <div class="flex items-center gap-2 px-3 py-3 bg-black border-b border-white/6">
-                <img src="/images/discos/blues up.jpeg" class="w-9 h-9 rounded-md object-cover" alt="Blues Up"/>
+              style="backface-visibility: hidden; transform: rotateY(180deg);"
+            >
+              <div
+                class="flex items-center gap-2 px-3 py-3 bg-black border-b border-white/6"
+              >
+                <img
+                  src="/images/discos/blues up.jpeg"
+                  class="w-9 h-9 rounded-md object-cover"
+                  alt="Blues Up"
+                />
                 <div>
-                  <p class="text-[8px] uppercase tracking-[0.15em] text-white/35">Nuevo single · 2026</p>
+                  <p
+                    class="text-[8px] uppercase tracking-[0.15em] text-white/35"
+                  >
+                    Nuevo single · 2026
+                  </p>
                   <p class="text-xs font-bold text-white">Blues Up</p>
                 </div>
               </div>
 
               <div class="flex flex-col gap-2 px-3 py-3 bg-[#0a0a0a]">
-                <a href="https://youtu.be/fewAFTRRL_c?si=UGnrbwcs-Qomjdmu" target="_blank" rel="noreferrer"
-                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-red-500/10 text-red-400 border border-red-500/25 transition hover:bg-red-500/20 hover:translate-x-0.5">
-                  <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <a
+                  href="https://youtu.be/fewAFTRRL_c?si=UGnrbwcs-Qomjdmu"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-red-500/10 text-red-400 border border-red-500/25 transition hover:bg-red-500/20 hover:translate-x-0.5"
+                >
+                  <svg
+                    class="h-3.5 w-3.5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    ><path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    ></path></svg
+                  >
                   YouTube
                 </a>
-                <a href="https://open.spotify.com/album/629IX3Kpnw7mORdz0I2liO" target="_blank" rel="noreferrer"
-                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-green-500/10 text-green-400 border border-green-500/25 transition hover:bg-green-500/20 hover:translate-x-0.5">
-                  <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                <a
+                  href="https://open.spotify.com/album/629IX3Kpnw7mORdz0I2liO"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-green-500/10 text-green-400 border border-green-500/25 transition hover:bg-green-500/20 hover:translate-x-0.5"
+                >
+                  <svg
+                    class="h-3.5 w-3.5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    ><path
+                      d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                    ></path></svg
+                  >
                   Spotify
                 </a>
-                <a href="https://music.apple.com/us/album/blues-up-single/1888559350" target="_blank" rel="noreferrer"
-                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-white/8 text-white/80 border border-white/14 transition hover:bg-white/14 hover:translate-x-0.5">
-                  <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <a
+                  href="https://music.apple.com/us/album/blues-up-single/1888559350"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-white/8 text-white/80 border border-white/14 transition hover:bg-white/14 hover:translate-x-0.5"
+                >
+                  <svg
+                    class="h-3.5 w-3.5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    ><path
+                      d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                    ></path></svg
+                  >
                   Apple Music
                 </a>
-                <a href="https://share.google/OCJLTDp9PZsIBtBaW" target="_blank" rel="noreferrer"
-                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-violet-500/10 text-violet-400 border border-violet-500/25 transition hover:bg-violet-500/20 hover:translate-x-0.5">
-                  <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.088H24v1.664h-5.056zM18.944 13.448H24v1.664h-5.056zM18.944 10.808H24v1.664h-5.056zM18.944 8.168H24v1.664h-5.056zM12.472 18.728H17.528v1.664H12.472zM12.472 16.088H17.528v1.664H12.472zM12.472 13.448H17.528v1.664H12.472zM6 18.728h5.056v1.664H6zM6 16.088h5.056v1.664H6zM0 18.728h4.944v1.664H0z"/></svg>
+                <a
+                  href="https://share.google/OCJLTDp9PZsIBtBaW"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide bg-violet-500/10 text-violet-400 border border-violet-500/25 transition hover:bg-violet-500/20 hover:translate-x-0.5"
+                >
+                  <svg
+                    class="h-3.5 w-3.5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    ><path
+                      d="M18.944 16.088H24v1.664h-5.056zM18.944 13.448H24v1.664h-5.056zM18.944 10.808H24v1.664h-5.056zM18.944 8.168H24v1.664h-5.056zM12.472 18.728H17.528v1.664H12.472zM12.472 16.088H17.528v1.664H12.472zM12.472 13.448H17.528v1.664H12.472zM6 18.728h5.056v1.664H6zM6 16.088h5.056v1.664H6zM0 18.728h4.944v1.664H0z"
+                    ></path></svg
+                  >
                   Deezer
                 </a>
               </div>
             </div>
-
           </div>
         </div>
 
-        <p class="mb-4 text-[11px] uppercase tracking-[0.3em] text-white/70 sm:text-xs">
+        <p
+          class="mb-4 text-[11px] uppercase tracking-[0.3em] text-white/70 sm:text-xs"
+        >
           Pianista · Compositor
         </p>
 
-        <h1 class="font-serif text-5xl leading-none text-white sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1
+          class="font-serif text-5xl leading-none text-white sm:text-6xl md:text-7xl lg:text-8xl"
+        >
           Pepe Céspedes
         </h1>
 
         <!-- Redes sociales -->
         <div class="mt-8 flex items-center gap-4">
-
-          <a href="https://www.youtube.com/user/tioppcc" target="_blank" rel="noreferrer" aria-label="YouTube"
-            class="text-white/40 transition hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          <a
+            href="https://www.youtube.com/user/tioppcc"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="YouTube"
+            class="text-white/40 transition hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              ></path>
             </svg>
           </a>
 
-          <a href="https://open.spotify.com/artist/2wFNcJqk4srr647uj0Vjb7" target="_blank" rel="noreferrer" aria-label="Spotify"
-            class="text-white/40 transition hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          <a
+            href="https://open.spotify.com/artist/2wFNcJqk4srr647uj0Vjb7"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Spotify"
+            class="text-white/40 transition hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+              ></path>
             </svg>
           </a>
 
-          <a href="https://www.instagram.com/ppcespedes/" target="_blank" rel="noreferrer" aria-label="Instagram"
-            class="text-white/40 transition hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          <a
+            href="https://www.instagram.com/ppcespedes/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            class="text-white/40 transition hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"
+              ></path>
             </svg>
           </a>
 
-          <a href="https://www.tiktok.com/@ppcespedes" target="_blank" rel="noreferrer" aria-label="TikTok"
-            class="text-white/40 transition hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+          <a
+            href="https://www.tiktok.com/@ppcespedes"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="TikTok"
+            class="text-white/40 transition hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"
+              ></path>
             </svg>
           </a>
 
-          <a href="https://www.facebook.com/share/18PKYG7Z8h/" target="_blank" rel="noreferrer" aria-label="Facebook"
-            class="text-white/40 transition hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+          <a
+            href="https://www.facebook.com/share/18PKYG7Z8h/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+            class="text-white/40 transition hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"
+              ></path>
             </svg>
           </a>
-
         </div>
       </div>
     </div>
@@ -146,29 +293,35 @@
 
 <style>
   @keyframes popupEntrance {
-    from { opacity: 0; transform: translateY(16px) scale(0.92); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 </style>
 
 <script>
-  const discoCard = document.getElementById('disco-card') as HTMLElement | null;
-  const flipper   = document.getElementById('flipper')    as HTMLElement | null;
-  const cardFront = document.getElementById('card-front') as HTMLElement | null;
-  const closeBtn  = document.getElementById('popup-close') as HTMLElement | null;
+  const discoCard = document.getElementById("disco-card") as HTMLElement | null;
+  const flipper = document.getElementById("flipper") as HTMLElement | null;
+  const cardFront = document.getElementById("card-front") as HTMLElement | null;
+  const closeBtn = document.getElementById("popup-close") as HTMLElement | null;
 
-  cardFront?.addEventListener('click', () => {
-    if (flipper) flipper.style.transform = 'rotateY(180deg)';
+  cardFront?.addEventListener("click", () => {
+    if (flipper) flipper.style.transform = "rotateY(180deg)";
   });
 
-  closeBtn?.addEventListener('click', (e) => {
+  closeBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (flipper?.style.transform === 'rotateY(180deg)') {
-      flipper.style.transform = 'rotateY(0deg)';
+    if (flipper?.style.transform === "rotateY(180deg)") {
+      flipper.style.transform = "rotateY(0deg)";
     } else if (discoCard) {
-      discoCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      discoCard.style.opacity = '0';
-      discoCard.style.transform = 'translateY(8px) scale(0.95)';
+      discoCard.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+      discoCard.style.opacity = "0";
+      discoCard.style.transform = "translateY(8px) scale(0.95)";
       setTimeout(() => discoCard.remove(), 300);
     }
   });
